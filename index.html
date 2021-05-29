@@ -1,77 +1,466 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <meta name="google-site-verification" content="9mBxJfdPdoO3E5B-_Qm2s9Vq5HHxy20chZkLlLbUbKo" />
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <title>Droidsize.com by droidsize</title>
+    <title>Droidsize</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="HTML5 website template" />
+    <meta name="keywords" content="Droidsize, template, html, sass, jquery" />
+    <meta name="author" content="Bucky Maler" />
+    <link rel="stylesheet" href="assets/css/main.css" />
   </head>
-
   <body>
-    <header>
-      <div class="inner">
-        <h1>Droidsize.com</h1>
-        <h2>The official website of droidsize</h2>
-        <a href="https://github.com/droidsize/droidsize.com" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
-
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
-
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
-
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can @mention a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/droidsize/droidsize.com/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/droidsize/droidsize.com/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/droidsize/droidsize.com"></a> is maintained by <a href="https://github.com/droidsize">droidsize</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+    <!-- notification for small viewports and landscape oriented smartphones -->
+    <div class="device-notification">
+      <a class="device-notification--logo" href="#0">
+        <img src="assets/img/logo.png" alt="Droidsize" />
+        <p>Droidsize</p>
+      </a>
+      <p class="device-notification--message">
+        Droidsize has so much to offer that we must request you orient your
+        device to portrait or find a larger screen. You won't be disappointed.
+      </p>
     </div>
 
-  
+    <div class="perspective effect-rotate-left">
+      <div class="container">
+        <div class="outer-nav--return"></div>
+        <div id="viewport" class="l-viewport">
+          <div class="l-wrapper">
+            <header class="header">
+              <a class="header--logo" href="#0">
+                <img
+                  src="assets/img/logo.svg"
+                  class="header--logo-image"
+                  alt="Droidsize"
+                />
+              </a>
+              <button class="header--cta cta">Hire Us</button>
+              <div class="header--nav-toggle">
+                <span></span>
+              </div>
+            </header>
+            <nav class="l-side-nav">
+              <ul class="side-nav">
+                <li class="is-active"><span>Home</span></li>
+                <li><span>Work</span></li>
+                <li><span>About</span></li>
+                <li><span>Contact</span></li>
+                <li><span>Hire us</span></li>
+              </ul>
+            </nav>
+            <ul class="l-main-content main-content">
+              <li class="l-section section section--is-active">
+                <div class="intro">
+                  <div class="intro--banner">
+                    <h1>Your next<br />interactive<br />experience</h1>
+                    <button class="cta">
+                      Hire Us
+                      <svg
+                        version="1.1"
+                        id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 150 118"
+                        style="enable-background: new 0 0 150 118"
+                        xml:space="preserve"
+                      >
+                        <g
+                          transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)"
+                        >
+                          <path
+                            d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"
+                          />
+                        </g>
+                      </svg>
+                      <span class="btn-background"></span>
+                    </button>
+                    <img
+                      src="assets/img/introduction-visual.png"
+                      alt="Welcome"
+                    />
+                  </div>
+                  <div class="intro--options">
+                    <a href="#0">
+                      <h3>Metiew &amp; Smith</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                        sed do.
+                      </p>
+                    </a>
+                    <a href="#0">
+                      <h3>Fantasy interactive</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                        sed do.
+                      </p>
+                    </a>
+                    <a href="#0">
+                      <h3>Paul &amp; shark</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                        sed do.
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="l-section section">
+                <div class="work">
+                  <h2>Selected work</h2>
+                  <div class="work--lockup">
+                    <ul class="slider">
+                      <li class="slider--item slider--item-left">
+                        <a href="#0">
+                          <div class="slider--item-image">
+                            <img
+                              src="assets/img/work-victory.jpg"
+                              alt="Victory"
+                            />
+                          </div>
+                          <p class="slider--item-title">Victory</p>
+                          <p class="slider--item-description">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit sed do.
+                          </p>
+                        </a>
+                      </li>
+                      <li class="slider--item slider--item-center">
+                        <a href="#0">
+                          <div class="slider--item-image">
+                            <img
+                              src="assets/img/work-metiew-smith.jpg"
+                              alt="Metiew and Smith"
+                            />
+                          </div>
+                          <p class="slider--item-title">Metiew &amp; Smith</p>
+                          <p class="slider--item-description">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit sed do.
+                          </p>
+                        </a>
+                      </li>
+                      <li class="slider--item slider--item-right">
+                        <a href="#0">
+                          <div class="slider--item-image">
+                            <img
+                              src="assets/img/work-alex-nowak.jpg"
+                              alt="Alex Nowak"
+                            />
+                          </div>
+                          <p class="slider--item-title">Alex Nowak</p>
+                          <p class="slider--item-description">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit sed do.
+                          </p>
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="slider--prev">
+                      <svg
+                        version="1.1"
+                        id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 150 118"
+                        style="enable-background: new 0 0 150 118"
+                        xml:space="preserve"
+                      >
+                        <g
+                          transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)"
+                        >
+                          <path
+                            d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29
+                    c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180
+                    c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z"
+                          />
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="slider--next">
+                      <svg
+                        version="1.1"
+                        id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 150 118"
+                        style="enable-background: new 0 0 150 118"
+                        xml:space="preserve"
+                      >
+                        <g
+                          transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)"
+                        >
+                          <path
+                            d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"
+                          />
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="l-section section">
+                <div class="about">
+                  <div class="about--banner">
+                    <h2>We<br />believe in<br />passionate<br />people</h2>
+                    <a href="#0"
+                      >Career
+                      <span>
+                        <svg
+                          version="1.1"
+                          id="Layer_1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          x="0px"
+                          y="0px"
+                          viewBox="0 0 150 118"
+                          style="enable-background: new 0 0 150 118"
+                          xml:space="preserve"
+                        >
+                          <g
+                            transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)"
+                          >
+                            <path
+                              d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"
+                            />
+                          </g>
+                        </svg>
+                      </span>
+                    </a>
+                    <img src="assets/img/about-visual.png" alt="About Us" />
+                  </div>
+                  <div class="about--options">
+                    <a href="#0">
+                      <h3>Winners</h3>
+                    </a>
+                    <a href="#0">
+                      <h3>Philosophy</h3>
+                    </a>
+                    <a href="#0">
+                      <h3>History</h3>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="l-section section">
+                <div class="contact">
+                  <div class="contact--lockup">
+                    <div class="modal">
+                      <div class="modal--information">
+                        <p>We are based out of New Delhi, India</p>
+                        <a href="mailto:hello@droidsize.com"
+                          >hello@droidsize.com</a
+                        >
+                      </div>
+                      <ul class="modal--options">
+                        <li><a href="#0">Bēhance</a></li>
+                        <li><a href="#0">dribbble</a></li>
+                        <li>
+                          <a href="mailto:hello@droidsize.com">Contact Us</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="l-section section">
+                <div class="hire">
+                  <h2>You want us to do</h2>
+                  <!-- checkout formspree.io for easy form setup -->
+                  <form class="work-request">
+                    <div class="work-request--options">
+                      <span class="options-a">
+                        <input id="opt-1" type="checkbox" value="app design" />
+                        <label for="opt-1">
+                          <svg
+                            version="1.1"
+                            id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px"
+                            y="0px"
+                            viewBox="0 0 150 111"
+                            style="enable-background: new 0 0 150 111"
+                            xml:space="preserve"
+                          >
+                            <g
+                              transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)"
+                            >
+                              <path
+                                d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"
+                              />
+                            </g>
+                          </svg>
+                          App Development
+                        </label>
+                        <input
+                          id="opt-2"
+                          type="checkbox"
+                          value="graphic design"
+                        />
+                        <label for="opt-2">
+                          <svg
+                            version="1.1"
+                            id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px"
+                            y="0px"
+                            viewBox="0 0 150 111"
+                            style="enable-background: new 0 0 150 111"
+                            xml:space="preserve"
+                          >
+                            <g
+                              transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)"
+                            >
+                              <path
+                                d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"
+                              />
+                            </g>
+                          </svg>
+                          Graphic Design
+                        </label>
+                        <input
+                          id="opt-3"
+                          type="checkbox"
+                          value="motion design"
+                        />
+                        <label for="opt-3">
+                          <svg
+                            version="1.1"
+                            id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px"
+                            y="0px"
+                            viewBox="0 0 150 111"
+                            style="enable-background: new 0 0 150 111"
+                            xml:space="preserve"
+                          >
+                            <g
+                              transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)"
+                            >
+                              <path
+                                d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"
+                              />
+                            </g>
+                          </svg>
+                          Illustrations
+                        </label>
+                      </span>
+                      <span class="options-b">
+                        <input id="opt-4" type="checkbox" value="ux design" />
+                        <label for="opt-4">
+                          <svg
+                            version="1.1"
+                            id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px"
+                            y="0px"
+                            viewBox="0 0 150 111"
+                            style="enable-background: new 0 0 150 111"
+                            xml:space="preserve"
+                          >
+                            <g
+                              transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)"
+                            >
+                              <path
+                                d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"
+                              />
+                            </g>
+                          </svg>
+                          UX Design
+                        </label>
+                        <input id="opt-5" type="checkbox" value="webdesign" />
+                        <label for="opt-5">
+                          <svg
+                            version="1.1"
+                            id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px"
+                            y="0px"
+                            viewBox="0 0 150 111"
+                            style="enable-background: new 0 0 150 111"
+                            xml:space="preserve"
+                          >
+                            <g
+                              transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)"
+                            >
+                              <path
+                                d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"
+                              />
+                            </g>
+                          </svg>
+                          Web Development
+                        </label>
+                        <input id="opt-6" type="checkbox" value="marketing" />
+                        <label for="opt-6">
+                          <svg
+                            version="1.1"
+                            id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px"
+                            y="0px"
+                            viewBox="0 0 150 111"
+                            style="enable-background: new 0 0 150 111"
+                            xml:space="preserve"
+                          >
+                            <g
+                              transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)"
+                            >
+                              <path
+                                d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"
+                              />
+                            </g>
+                          </svg>
+                          Marketing
+                        </label>
+                      </span>
+                    </div>
+                    <div class="work-request--information">
+                      <div class="information-name">
+                        <input id="name" type="text" spellcheck="false" />
+                        <label for="name">Name</label>
+                      </div>
+                      <div class="information-email">
+                        <input id="email" type="email" spellcheck="false" />
+                        <label for="email">Email</label>
+                      </div>
+                    </div>
+                    <input type="submit" value="Send Request" />
+                  </form>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <ul class="outer-nav">
+        <li class="is-active">Home</li>
+        <li>Work</li>
+        <li>About</li>
+        <li>Contact</li>
+        <li>Hire us</li>
+      </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>'
+        )
+    </script>
+    <script src="assets/js/functions-min.js"></script>
   </body>
 </html>
