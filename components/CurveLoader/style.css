@@ -1,0 +1,15 @@
+.curve {
+  @apply relative;
+
+  svg, .background {
+    @apply fixed h-[calc(100vh+600px)] w-screen pointer-events-none left-0 top-0;
+  }
+
+  .background {
+    @apply bg-black transition-opacity delay-100;
+  }
+
+  .route {
+    @apply absolute left-1/2 top-[40%] text-white text-[46px] z-[9999] -translate-x-1/2 text-center;
+  }
+}

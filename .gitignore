@@ -1,32 +1,43 @@
-# Application
-web/app/plugins/*
-!web/app/plugins/.gitkeep
-web/app/mu-plugins/*/
-web/app/themes/twentytwentythree/
-web/app/upgrade
-web/app/uploads/*
-!web/app/uploads/.gitkeep
-web/app/cache/*
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# OS-specific
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
 .DS_Store
-.DS_Store?
+*.pem
 
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
-# WordPress
-web/wp
-web/.htaccess
-
-# Logs
-*.log
-
-# Dotenv
+# local env files
+.env*.local
 .env
-.env.*
-!.env.example
 
-# Composer
-/vendor
+# vercel
+.vercel
 
-# WP-CLI
-wp-cli.local.yml
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# email
+/.react-email/
+
+.vscode
+.contentlayer
