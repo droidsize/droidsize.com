@@ -75,14 +75,16 @@ function ParallaxText({
   });
 
   return (
-    <section className="relative bg-[#221d24]">
+    <section className="relative bg-[var(--site-inverse)]">
       <div className="m-0 flex flex-nowrap overflow-hidden whitespace-nowrap leading-[0.8] tracking-[-2px]">
         <Link
           href={href}
-          className="pb-28 pt-24 text-neutral-200 transition-colors duration-500 ease-in-out-sine hover:text-[#ebe1f9]"
+          aria-label={`${children}. ${subTitle}`}
+          className="pb-24 pt-20 text-[var(--site-inverse-ink)] transition-colors duration-500 ease-in-out-sine hover:text-black/55 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-6px] focus-visible:outline-black sm:pb-28 sm:pt-24"
         >
           <motion.div
-            className="flex flex-nowrap whitespace-nowrap text-[10rem] font-semibold *:mr-[30px] *:block"
+            aria-hidden="true"
+            className="flex flex-nowrap whitespace-nowrap text-[clamp(4.5rem,14vw,10rem)] font-semibold *:mr-[30px] *:block"
             style={{ x }}
           >
             <span>{children}</span>
@@ -92,9 +94,12 @@ function ParallaxText({
             <span>{children}</span>
             <span>{children}</span>
           </motion.div>
-          <div className="absolute bottom-11 left-1/2 flex -translate-x-1/2 items-center gap-1 tracking-normal text-neutral-200">
+          <div
+            aria-hidden="true"
+            className="absolute bottom-11 left-1/2 flex -translate-x-1/2 items-center gap-1 tracking-normal text-[var(--site-inverse-ink)]"
+          >
             {subTitle}
-            <ArrowUpRight className="" />
+            <ArrowUpRight />
           </div>
         </Link>
       </div>

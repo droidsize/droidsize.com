@@ -16,7 +16,7 @@ export default function TextRevealOnScroll({
     offset: ["start 40%", "end 60%"],
   });
 
-  const splitWords = (phrase: string): JSX.Element[] => {
+  const splitWords = (phrase: string): React.ReactElement[] => {
     const allLetters = phrase.split(" ").reduce(
       (acc, word, wordIndex) => {
         const letters = word.split("").map((letter, letterIndex) => ({
@@ -47,8 +47,8 @@ export default function TextRevealOnScroll({
     );
 
     const totalLetters = allLetters.length;
-    const words: JSX.Element[] = [];
-    let currentWord: JSX.Element[] = [];
+    const words: React.ReactElement[] = [];
+    let currentWord: React.ReactElement[] = [];
     let currentWordIndex = 0;
 
     allLetters.forEach((letterObj, globalIndex) => {
@@ -115,9 +115,12 @@ export default function TextRevealOnScroll({
   return (
     <section
       ref={containerRef}
+      aria-label={phrase}
       className="flex min-h-screen items-center justify-center py-[20vh] text-[rgb(211,211,211)] md:min-h-screen"
     >
-      <div className="flex w-[90%] flex-wrap">{splitWords(phrase)}</div>
+      <div aria-hidden="true" className="flex w-[90%] flex-wrap">
+        {splitWords(phrase)}
+      </div>
     </section>
   );
 }

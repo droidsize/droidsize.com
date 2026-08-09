@@ -1,16 +1,16 @@
 import { SidebarNavItem, SiteConfig } from "types";
-import { env } from "@/env.mjs";
 
-const site_url = env.NEXT_PUBLIC_APP_URL;
+const site_url = "https://www.droidsize.com";
 
 export const siteConfig: SiteConfig = {
-  name: "Droidsize - Agency",
-  description: "description",
+  name: "Droidsize Technologies",
+  description:
+    "A multidisciplinary product studio building SaaS, AI, and mobile products where technology and considered design meet.",
   url: site_url,
-  ogImage: `${site_url}/_static/og.jpg`,
+  ogImage: `${site_url}/opengraph-image.jpg`,
   links: {
-    twitter: "https://twitter.com/droidsize",
     github: "https://github.com/droidsize",
+    linkedin: "https://www.linkedin.com/company/droidsize/",
   },
   mailSupport: "contact@droidsize.com",
 };
@@ -19,12 +19,10 @@ export const footerLinks: SidebarNavItem[] = [
   {
     title: "Company",
     items: [
-      { title: "Works", href: "#" },
-      { title: "About", href: "#" },
-      { title: "Award", href: "#" },
-      { title: "Services", href: "#" },
-      { title: "Blog", href: "#" },
-      { title: "Careers", href: "#" },
+      { title: "Products", href: "/work" },
+      { title: "Open source", href: "/work#repopress" },
+      { title: "Studio", href: "/#our-services" },
+      { title: "About", href: "/company" },
     ],
   },
 ];
@@ -32,9 +30,8 @@ export const footerLinks: SidebarNavItem[] = [
 export const footerSocials = {
   title: "Socials",
   items: [
-    { title: "X", href: "#" },
-    { title: "Insgtagram", href: "#" },
-    { title: "Linkedin", href: "https://www.linkedin.com/company/droidsize/" },
+    { title: "LinkedIn", href: "https://www.linkedin.com/company/droidsize/" },
+    { title: "GitHub", href: "https://github.com/droidsize" },
   ],
 };
 
@@ -43,8 +40,5 @@ export const footerPolicy = {
   items: [
     { title: "Privacy", href: "/privacy" },
     { title: "Terms", href: "/terms" },
-    { title: "Return & Refund", href: "/refund" },
-    { title: "Disclaimer", href: "/disclaimer" },
-    { title: "Sitemap", href: "/sitemap" },
   ],
 };

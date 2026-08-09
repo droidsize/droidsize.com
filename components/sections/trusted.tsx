@@ -1,50 +1,55 @@
-import { Card } from "@/components/ui/card";
-import Image from "next/image";
+import { ArrowDownRight } from "lucide-react";
+
+import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+
+const principles = [
+  ["01", "A direct line from the problem to the people doing the work."],
+  ["02", "Design decisions that engineering can carry into production."],
+  ["03", "A product foundation that can change without starting over."],
+];
 
 export default function Trusted() {
   return (
-    <section className="mx-auto max-w-7xl py-36">
-      <Card className="container relative min-h-[500px] overflow-hidden rounded-3xl bg-[#39179d] px-6 py-12 text-white md:px-8 md:py-16">
-        <div className="flex md:gap-12 lg:gap-16">
-          {/* left  */}
-          <div className="flex w-1/3 items-center justify-center">
-            <div className="absolute left-36 top-32 *:size-32">
-              <svg
-                viewBox="0 0 104 80"
-                className="size-[240px]"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill="#f1f3f7"
-                  d="M1,17.6c0-4.7,1.9-8.8,5.6-12.1c3.7-3.5,8.1-5.3,13.2-5.3c2.1,0,4.4,0.5,6.8,1.4l-0.4-0.4l2.4,1.1h0.4
-	c0.8,0.5,1.7,1.1,2.8,1.8c0,0.2,0.4,0.7,1.2,1.4c6.7,5.9,9.4,14.8,8.4,26.6c-1.1,17-11.2,32.4-30.3,46.1c-1.1,0.9-2.3,1.4-3.6,1.4
-	c-2.1,0-3.9-0.8-5.2-2.5c-2.4-2.8-2-5.4,1.2-7.8C19.1,58,27.6,45.7,28.9,32.5c-2.9,1.7-6,2.5-9.2,2.5c-5.1,0-9.4-1.7-13.2-5
-	C2.8,26.5,1,22.3,1,17.6z M62.8,17.6c0-4.7,1.9-8.8,5.6-12.1c3.7-3.5,8.1-5.3,13.2-5.3c2.1,0,4.4,0.5,6.8,1.4L88,1.3
-	c0.8,0.2,1.6,0.6,2.4,1.1h0.4c1.1,0.5,2,1.1,2.8,1.8c0,0.2,0.4,0.7,1.2,1.4c6.7,5.9,9.4,14.8,8.4,26.6c-1.1,17-11.2,32.4-30.3,46.1
-	c-1.1,0.9-2.3,1.4-3.6,1.4c-2.1,0-3.7-0.8-4.8-2.5c-2.7-2.8-2.4-5.4,0.8-7.8C80.9,58,89.4,45.7,90.8,32.5c-2.9,1.7-6,2.5-9.2,2.5
-	c-5.1,0-9.4-1.7-13.2-5C64.7,26.5,62.8,22.3,62.8,17.6z"
-                />
-              </svg>
-              <div className="absolute inset-0 flex scale-[2] items-center justify-center">
-                <Image
-                  src="/_static/trusted-by-founders.svg"
-                  className="animate-[spin_30s_linear_infinite]"
-                  alt="trusted"
-                  width={100}
-                  height={100}
-                />
+    <section className="py-24 sm:py-36" aria-labelledby="partnership-heading">
+      <MaxWidthWrapper>
+        <div className="overflow-hidden rounded-2xl bg-[var(--site-inverse)] text-[var(--site-inverse-ink)]">
+          <div className="grid gap-12 p-7 sm:p-12 lg:grid-cols-[0.9fr_1.1fr] lg:p-16">
+            <div className="flex flex-col justify-between gap-16">
+              <ArrowDownRight
+                aria-hidden="true"
+                className="size-12 text-black/55"
+              />
+              <div>
+                <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-black/55">
+                  How we partner
+                </p>
+                <h2
+                  id="partnership-heading"
+                  className="max-w-xl text-[clamp(3rem,6vw,5.75rem)] font-semibold leading-[0.94] tracking-[-0.04em]"
+                >
+                  Close enough to care. Experienced enough to challenge.
+                </h2>
               </div>
             </div>
-          </div>
-          {/* right  */}
-          <div className="flex w-2/3 flex-col justify-between gap-8">
-            <blockquote className="max-w-[670px] text-2xl font-semibold leading-normal tracking-tight md:text-3xl md:lg:leading-normal lg:text-5xl lg:leading-normal">
-            &quot;We help passionate Founders perfect theirs design & development
-              game. Let&apos;s aim for the top together!&quot;
-            </blockquote>
+
+            <ol className="border-t border-black/20 lg:border-l lg:border-t-0">
+              {principles.map(([number, text]) => (
+                <li
+                  key={number}
+                  className="grid grid-cols-[3rem_1fr] gap-4 border-b border-black/20 py-7 lg:px-9"
+                >
+                  <span className="text-sm font-semibold text-black/55">
+                    {number}
+                  </span>
+                  <p className="max-w-xl text-xl leading-relaxed sm:text-2xl">
+                    {text}
+                  </p>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
-      </Card>
+      </MaxWidthWrapper>
     </section>
   );
 }

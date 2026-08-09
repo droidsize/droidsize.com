@@ -185,7 +185,7 @@ export default function BlogsList() {
           >
             <div
               style={{ top: index * -100 + "%" }}
-              className="ease-[cubic-bezier(0.76,0,0.24,1)] relative size-full transition-[top] duration-500"
+              className="relative size-full transition-[top] duration-500 [transition-timing-function:cubic-bezier(0.76,0,0.24,1)]"
             >
               {blogs.map((project, index) => {
                 const { src, color } = project;

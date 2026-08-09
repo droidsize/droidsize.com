@@ -1,233 +1,78 @@
-"use client";
-
-import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import {
-  motion,
-  MotionProps,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import { MoveUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-import { throttle } from "@/lib/utils";
+import { selectedProjects } from "@/config/projects";
+import { ProjectCover } from "@/components/projects/project-cover";
+import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
-function useElementViewportPosition(ref: React.RefObject<HTMLElement>) {
-  const [position, setPosition] = useState<[number, number]>([0, 0]);
-
-  useEffect(() => {
-    if (!ref || !ref.current) return;
-
-    const pageHeight = document.body.scrollHeight;
-    const start = ref.current.offsetTop - 600;
-    const end = start + ref.current.offsetHeight + 1000;
-
-    setPosition([start / pageHeight, end / pageHeight]);
-  }, []);
-
-  return { position };
-}
-
-const slideAnimation: MotionProps = {
-  initial: "partial",
-  whileInView: "full",
-  viewport: { amount: 1, once: false },
-};
+const homepageProjects = selectedProjects.slice(0, 4);
 
 export default function RecentWorks() {
-  const mainRef = useRef<HTMLDivElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-  const { position } = useElementViewportPosition(mainRef);
-  const [carouselEndPosition, setCarouselEndPosition] = useState(0);
-  const { scrollYProgress, scrollY } = useScroll();
-  const [sectionHeight, setSectionHeight] = useState("300vh");
-
-  const x = useTransform(
-    scrollYProgress,
-    position,
-    typeof window !== "undefined"
-      ? [window.innerWidth / 0.7, carouselEndPosition - window.innerWidth]
-      : [0, 0],
-  );
-
-  const textX = useTransform(
-    scrollYProgress,
-    position,
-    typeof window !== "undefined"
-      ? [
-          window.innerWidth / 2,
-          window.innerWidth / 2 - (textRef.current?.offsetWidth || 0),
-        ]
-      : [0, 0],
-  );
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log("Page scroll: ", latest);
-  });
-
-  useEffect(() => {
-    if (!carouselRef || !carouselRef.current) return;
-    const parent = carouselRef.current.parentElement;
-    const scrollbarWidth =
-      typeof window !== "undefined"
-        ? window.innerWidth - document.documentElement.clientWidth
-        : 0;
-
-    const resetCarouselEndPosition = () => {
-      if (carouselRef && carouselRef.current && typeof window !== "undefined") {
-        const newPosition =
-          carouselRef.current.clientWidth -
-          window.innerWidth +
-          scrollbarWidth +
-          (parent as HTMLElement).offsetLeft * 2;
-
-        setCarouselEndPosition(-newPosition);
-
-        // Calculate the section height based on the total width of carousel items
-        const totalWidth = carouselRef.current.clientWidth;
-        const sectionHeight = `${(totalWidth / window.innerWidth) * 100}vh`;
-        setSectionHeight(sectionHeight);
-      }
-    };
-
-    resetCarouselEndPosition();
-    const handleResize = throttle(resetCarouselEndPosition, 10);
-
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize);
-    }
-    return () => {
-      if (typeof window !== "undefined") {
-        window.removeEventListener("resize", handleResize);
-      }
-    };
-  }, []);
-
   return (
-    <>
-      <section ref={mainRef} id="recent-works">
-        <div
-          className="mx-auto w-full"
-          style={{ height: sectionHeight }}
-          data-scroll-container
-        >
-          <div
-            className="sticky top-0 flex h-screen w-full flex-col items-start justify-center overflow-hidden"
-            data-scroll-section
+    <section
+      id="capabilities"
+      className="relative overflow-hidden py-24 sm:py-36"
+      aria-labelledby="selected-work-heading"
+    >
+      <MaxWidthWrapper large>
+        <div className="mb-14 grid gap-7 border-b border-white/20 pb-10 sm:mb-20 sm:pb-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <div>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--site-muted)]">
+              Selected work
+            </p>
+            <h2
+              id="selected-work-heading"
+              className="max-w-5xl text-[clamp(3.8rem,8vw,6rem)] font-bold leading-[0.92] tracking-[-0.04em] text-[var(--site-ink)]"
+            >
+              Products we build and products we help bring to life.
+            </h2>
+          </div>
+          <p className="max-w-lg text-lg leading-relaxed text-white/70 lg:justify-self-end">
+            Our own products keep us close to the operational problems founders
+            face. The same practice shapes how we work with partner teams.
+          </p>
+        </div>
+
+        <div className="grid gap-x-5 gap-y-14 md:grid-cols-2">
+          {homepageProjects.map((project) => (
+            <article className="group min-w-0" key={project.slug}>
+              <Link
+                href={`/work/${project.slug}`}
+                className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              >
+                <ProjectCover
+                  project={project}
+                  imageClassName="transition-transform duration-700 ease-out group-hover:scale-[1.015] motion-reduce:transition-none"
+                />
+                <div className="flex items-start justify-between gap-6 border-b border-white/20 py-5">
+                  <div>
+                    <h3 className="text-2xl font-medium tracking-[-0.02em] text-white sm:text-3xl">
+                      {project.name}
+                    </h3>
+                    <p className="mt-2 text-sm text-white/55">
+                      {project.relationship}
+                    </p>
+                  </div>
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="mt-1 size-6 shrink-0 text-white/70 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
+                  />
+                </div>
+              </Link>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-14 flex justify-end sm:mt-20">
+          <Link
+            href="/work"
+            className="inline-flex min-h-12 items-center gap-3 border-b border-white py-2 text-base font-medium text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
-            <motion.h2
-              ref={textRef}
-              className="text-gradient_white-black absolute left-0 top-0 w-full -translate-y-1/2 text-center text-[13vw] font-bold text-neutral-100 dark:text-[#ebe1f9]"
-              style={{ x: textX }}
-              data-scroll-section
-            >
-              Recent Works
-            </motion.h2>
-            <motion.div
-              ref={carouselRef}
-              className="mt-20 flex gap-10"
-              style={{ x }}
-            >
-              {works.map((work, index) => (
-                <motion.div
-                  {...slideAnimation}
-                  key={index}
-                  className="relative w-[35rem] overflow-hidden"
-                >
-                  <Link href={"#"} className="size-full">
-                    <Card work={work} />
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+            View all work
+            <ArrowRight aria-hidden="true" className="size-5" />
+          </Link>
         </div>
-      </section>
-    </>
+      </MaxWidthWrapper>
+    </section>
   );
 }
-
-function Card({ work }: { work: (typeof works)[number] }) {
-  return (
-    <>
-      <article className="group relative overflow-hidden">
-        <div className="wofull h-96 overflow-hidden rounded-xl">
-          <Image
-            src={`/_static/${work.image}`}
-            alt={"image"}
-            height={800}
-            width={1200}
-            className="size-full scale-105 rounded-xl object-cover transition-all duration-300 hover:scale-100"
-          />
-        </div>
-        <div className="relative bottom-2 flex w-full items-center justify-between p-4 pt-6 text-black">
-          <div className="flex flex-col gap-2">
-            <h3 className="text-4xl font-bold text-white">{work.title}</h3>
-            <div className="text-xl font-medium text-white">
-              {work.category}
-            </div>
-          </div>
-          <button className="group relative inline-flex size-12 items-center justify-center overflow-hidden rounded-full border-2 bg-[#080918] font-medium text-neutral-200 transition-all duration-500 group-hover:w-24">
-            <div className="inline-flex whitespace-nowrap opacity-0 transition-all duration-500 group-hover:-translate-x-3 group-hover:opacity-100">
-              Visit
-            </div>
-            <div className="absolute right-3">
-              <MoveUpRight />
-            </div>
-          </button>
-        </div>
-      </article>
-    </>
-  );
-}
-
-export const works = [
-  {
-    title: "Paytm",
-    category: "Backend Development",
-    image: "works/1.jpg",
-  },
-  {
-    title: "Pei",
-    category: "Web & App Development",
-    image: "works/2.jpg",
-  },
-  {
-    title: "Stream app",
-    category: "Application Development",
-    image: "works/3.jpg",
-  },
-  {
-    title: "Daily Objects",
-    category: "Application Development",
-    image: "works/2.jpg",
-  },
-  {
-    title: "Chargespot",
-    category: "Full Stack",
-    image: "works/4.jpg",
-  },
-  {
-    title: "Painini",
-    category: "Full Stack",
-    image: "works/2.jpg",
-  },
-  {
-    title: "House of Ivy",
-    category: "Branding",
-    image: "works/1.jpg",
-  },
-  {
-    title: "Epic.one",
-    category: "Application Development",
-    image: "works/3.jpg",
-  },
-  {
-    title: "Bitcharge",
-    category: "Front/Backend Development",
-    image: "works/4.jpg",
-  },
-];

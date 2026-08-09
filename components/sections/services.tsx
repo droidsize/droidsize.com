@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Code, Crown, MapPin, Palette, TrendingUp } from "lucide-react";
+import { Code, Compass, Layers3, Palette } from "lucide-react";
 
 type Service = {
   title: string;
@@ -14,16 +14,19 @@ interface ServiceItemProps {
 
 function ServiceItem({ service }: ServiceItemProps) {
   return (
-    <div className="group relative overflow-hidden border-t border-white/20 bg-background transition-all duration-500 hover:bg-white/5">
-      <div className="flex items-center justify-between px-8 py-4">
-        <p className="pointer-events-none m-0 -mb-16 text-[7vw] font-semibold uppercase tracking-tight transition-all duration-500 group-hover:mb-0 group-hover:text-[#8963fd]">
+    <div className="group relative overflow-hidden border-t border-white/20 bg-transparent transition-colors duration-500 hover:bg-white/[0.04]">
+      <div className="flex flex-col gap-5 px-4 py-7 sm:px-8 md:flex-row md:items-center md:justify-between md:gap-10">
+        <h3 className="pointer-events-none m-0 text-[clamp(2.8rem,7vw,6rem)] font-semibold uppercase leading-none tracking-[-0.04em] text-[var(--site-ink)] transition-colors duration-500 group-hover:text-white/55">
           {service.title}
-        </p>
-        <div className="flex items-center gap-10">
-          <p className="text-md max-w-[16vw] font-medium text-white">
+        </h3>
+        <div className="flex items-center justify-between gap-6 md:justify-end md:gap-10">
+          <p className="max-w-sm text-base font-medium leading-relaxed text-white md:max-w-[18rem]">
             {service.description}
           </p>
-          <div className="text-white*:size-6 rounded-full border border-white/20 p-4">
+          <div
+            aria-hidden="true"
+            className="shrink-0 rounded-full border border-white/20 p-4 text-white *:size-6"
+          >
             {service.icon}
           </div>
         </div>
@@ -32,7 +35,7 @@ function ServiceItem({ service }: ServiceItemProps) {
   );
 }
 
-function useElementViewportPosition(ref: React.RefObject<HTMLElement>) {
+function useElementViewportPosition(ref: React.RefObject<HTMLElement | null>) {
   const [position, setPosition] = useState<[number, number]>([0, 0]);
 
   useEffect(() => {
@@ -43,7 +46,7 @@ function useElementViewportPosition(ref: React.RefObject<HTMLElement>) {
     const end = start + ref.current.offsetHeight + 1000;
 
     setPosition([start / pageHeight, end / pageHeight]);
-  }, []);
+  }, [ref]);
 
   return { position };
 }
@@ -51,7 +54,7 @@ function useElementViewportPosition(ref: React.RefObject<HTMLElement>) {
 export default function Services() {
   const mainRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress, scrollY } = useScroll();
+  const { scrollYProgress } = useScroll();
   const { position } = useElementViewportPosition(mainRef);
 
   const textX = useTransform(
@@ -73,12 +76,12 @@ export default function Services() {
     >
       <div className="container mx-auto px-4 py-20">
         {/* headline */}
-        <h1 className="text-gradient_white-black z-[2] self-center text-center text-8xl font-bold leading-normal dark:text-[#ebe1f9]">
+        <h2 className="z-[2] self-center text-center text-[clamp(3.5rem,9vw,6rem)] font-bold leading-normal tracking-[-0.04em] text-[var(--site-ink)]">
           Our Services
-        </h1>
+        </h2>
         <motion.div
           ref={textRef}
-          className="absolute left-0 top-20 -z-10 w-full -translate-y-1/2 text-center text-[10vw] font-bold uppercase leading-none text-neutral-700/30"
+          className="absolute left-0 top-20 -z-10 w-full -translate-y-1/2 text-center text-[10vw] font-bold uppercase leading-none text-white/[0.035]"
           style={{ x: textX }}
           data-scroll-section
         >
@@ -100,23 +103,27 @@ export default function Services() {
 
 export const services = [
   {
-    title: "Development",
-    description: "Full-stack Development & Architecture",
-    icon: <Code />,
+    title: "Strategy",
+    description:
+      "Clarify the problem, define the product, and turn uncertainty into a practical roadmap.",
+    icon: <Compass />,
   },
   {
     title: "Design",
-    description: "UI/UX Design, Web & Mobile Design",
+    description:
+      "Shape clear interfaces, useful flows, and a visual system people remember.",
     icon: <Palette />,
   },
   {
-    title: "Marketing",
-    description: "Marketing Strategy & Analytics",
-    icon: <TrendingUp />,
+    title: "Engineering",
+    description:
+      "Build dependable web and mobile products with maintainable foundations.",
+    icon: <Code />,
   },
   {
-    title: "Branding",
-    description: "Brand Identity, Strategy & Consulting",
-    icon: <Crown />,
+    title: "Evolution",
+    description:
+      "Improve what ships through focused releases, measurement, and long-term technical care.",
+    icon: <Layers3 />,
   },
 ];

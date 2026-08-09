@@ -1,72 +1,40 @@
 import React from "react";
-import Link from "next/link";
-import { motion, useScroll } from "framer-motion";
-import { Sparkles } from "lucide-react";
 
-import { cn } from "@/lib/utils";
 import ButtonHover from "@/components/ButtonHover";
-import { slideUpSection } from "@/components/preloader/animations";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
-import { buttonVariants } from "../ui/button";
-
 const Hero = () => {
-  const { scrollYProgress } = useScroll();
-
-  const handleExploreClick = () => {
-    const recentWorksSection = document.getElementById("our-services");
-    if (recentWorksSection) {
-      recentWorksSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    // variants={slideUpSection} initial="initial" animate="enter"
-    <motion.header
-      className="z-10 min-h-[90vh]"
-      variants={slideUpSection}
-      initial="initial"
-      animate="enter"
-    >
+    <header className="z-10 flex min-h-[calc(100svh-8rem)] items-center overflow-hidden pb-16 pt-6 sm:pb-24">
       <MaxWidthWrapper>
-        <div className="flex flex-col items-center justify-center gap-4">
-          <div
-            className={cn(
-              buttonVariants({
-                variant: "outline",
-                size: "lg",
-                rounded: "full",
-              }),
-              "border-2 px-4",
-            )}
-          >
-            Bringing Your Brand to Life Online
+        <div className="flex flex-col items-center justify-center gap-6">
+          <div className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-4 py-2 text-center text-sm font-medium text-[var(--site-muted)] sm:text-base">
+            Multidisciplinary product studio
           </div>
-          <h1 className="flex flex-col gap-2 text-center font-bold leading-normal text-[#ebe1f9]">
-            <span className="text-gradient_white-black text-[8rem]">
-              Your Vision,
+          <h1
+            aria-label="Software products and the systems behind them."
+            className="flex max-w-[1100px] flex-col text-center font-bold leading-[0.94] tracking-[-0.04em]"
+          >
+            <span className="text-[clamp(3.4rem,9vw,6rem)] text-[var(--site-muted)]">
+              Software products
             </span>
-            <span className="-mt-16 inline-block animate-[bg-gradient_6s_ease_infinite] bg-gradient-to-r from-[#1e1515] via-[#835aff] to-[#251a1a] bg-[length:300%] bg-clip-text text-[9.5rem] leading-normal text-transparent dark:from-[#ebe1f9] dark:via-[#835aff] dark:to-[#c7acf6]">
-              Our Expertise
+            <span className="inline-block pb-3 text-[clamp(3.8rem,10vw,6rem)] leading-[0.95] text-[var(--site-ink)]">
+              and the systems behind them.
             </span>
           </h1>
-          <div className="flex items-center gap-2">
-            <p className="text-xl tracking-wide text-[#ebe1f9]">
-              We create award winning sites that elevate your brand through
-              expert development and design.
+          <div className="flex max-w-2xl items-start text-center sm:items-center">
+            <p className="text-base leading-relaxed text-[var(--site-muted)] sm:text-xl">
+              We design and build SaaS, AI, and mobile products at the point
+              where technology and considered design meet—from India, for teams
+              everywhere.
             </p>
-            <Sparkles className="size-5 text-[#ebe1f9]" />
           </div>
           <div className="mt-10 flex justify-center">
-            <ButtonHover
-              title="Explore our services"
-              className="*:h-16"
-              onClick={handleExploreClick}
-            />
+            <ButtonHover title="See our work" className="*:h-16" href="/work" />
           </div>
         </div>
       </MaxWidthWrapper>
-    </motion.header>
+    </header>
   );
 };
 

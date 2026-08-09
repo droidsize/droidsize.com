@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion, useInView, useScroll } from "framer-motion";
-import { Database, Link, Palette, ShoppingBag } from "lucide-react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import { Code2, Compass, PanelsTopLeft } from "lucide-react";
 
 interface Step {
   number: number;
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.ReactElement;
   imageUrl: string;
 }
 
@@ -88,10 +88,6 @@ function StepContent({
 export default function HowWeWork() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(1);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
 
   return (
     <div ref={containerRef} className="relative">
@@ -150,26 +146,26 @@ export default function HowWeWork() {
 export const steps: Step[] = [
   {
     number: 1,
-    title: "Strategy and Design",
+    title: "Discover and align",
     description:
-      "We provide digital solutions as Website Design,Mobile App Design, Landing Page design, Illustration, Animation increase company’s values",
-    icon: <ShoppingBag className="size-5" />,
+      "We begin with the people, the business, and the constraints. The outcome is a shared brief and a clear definition of what success should look like.",
+    icon: <Compass className="size-5" />,
     imageUrl: "1.jpg",
   },
   {
     number: 2,
-    title: "Coding and Implementation",
+    title: "Design and prototype",
     description:
-      "We implement coding with new tech React, Webflow, Wordpress, Shopify, Flutter, iOS, Android and AI-driven applications.",
-    icon: <Link className="size-5" />,
+      "We make the product tangible early, testing structure, interaction, and visual language before expensive decisions become difficult to change.",
+    icon: <PanelsTopLeft className="size-5" />,
     imageUrl: "1.jpg",
   },
   {
     number: 3,
-    title: "SEO/Marketing and Advertisment",
+    title: "Build and evolve",
     description:
-      "Growth your brand with our SEO/Marketing and advertisment solutions. Help increase the traffic, Google 5* rating and more.",
-    icon: <Palette className="size-5" />,
+      "Design and engineering move together through release. After launch, we keep the product useful, stable, and ready for what comes next.",
+    icon: <Code2 className="size-5" />,
     imageUrl: "1.jpg",
   },
 ];

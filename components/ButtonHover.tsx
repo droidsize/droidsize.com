@@ -12,35 +12,38 @@ interface ButtonHoverProps {
 const ButtonHover = ({ title, className, onClick, href }: ButtonHoverProps) => {
   return !href ? (
     <button
+      type="button"
+      aria-label={title}
       className={cn(
-        "group relative inline-flex h-14 w-fit items-center justify-center overflow-hidden rounded-full border border-slate-800 font-medium *:h-14 dark:border-neutral-500",
+        "group relative inline-flex h-14 w-fit items-center justify-center overflow-hidden rounded-full border border-white/30 font-medium *:h-14 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white",
         className,
       )}
       onClick={onClick}
     >
-      <div className="inline-flex translate-y-0 items-center justify-center bg-neutral-900 bg-gradient-to-r px-12 text-black transition duration-500 group-hover:translate-y-[-150%] dark:from-[#8963fd] dark:to-[#6e42f1] dark:text-white">
+      <div className="inline-flex translate-y-0 items-center justify-center bg-[var(--site-inverse)] px-12 text-[var(--site-inverse-ink)] transition duration-500 group-hover:translate-y-[-150%]">
         {title}
       </div>
       <div className="absolute inline-flex w-full translate-y-full items-center justify-center transition duration-500 group-hover:translate-y-0">
-        <span className="absolute size-full translate-y-full skew-y-12 scale-y-0 bg-gradient-to-r from-[#212024] to-[#3f374e] transition duration-500 group-hover:translate-y-0 group-hover:scale-150 dark:from-[#ebe1f9] dark:to-[#bbb0d1]"></span>
-        <span className="z-10 text-white dark:text-black">{title}</span>
+        <span className="absolute size-full translate-y-full skew-y-12 scale-y-0 bg-[var(--site-surface-raised)] transition duration-500 group-hover:translate-y-0 group-hover:scale-150"></span>
+        <span className="z-10 text-[var(--site-ink)]">{title}</span>
       </div>
     </button>
   ) : (
     <Link
       href={href || "#"}
+      aria-label={title}
       className={cn(
-        "group relative inline-flex h-14 w-fit items-center justify-center overflow-hidden rounded-full border border-slate-800 font-medium *:h-14 dark:border-neutral-500",
+        "group relative inline-flex h-14 w-fit items-center justify-center overflow-hidden rounded-full border border-white/30 font-medium *:h-14 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white",
         className,
       )}
       onClick={onClick}
     >
-      <div className="inline-flex translate-y-0 items-center justify-center bg-neutral-900 bg-gradient-to-r px-12 text-black transition duration-500 group-hover:translate-y-[-150%] dark:bg-[#8963fd] dark:text-white">
+      <div className="inline-flex translate-y-0 items-center justify-center bg-[var(--site-inverse)] px-12 text-[var(--site-inverse-ink)] transition duration-500 group-hover:translate-y-[-150%]">
         {title}
       </div>
       <div className="absolute inline-flex w-full translate-y-full items-center justify-center transition duration-500 group-hover:translate-y-0">
-        <span className="absolute size-full translate-y-full skew-y-12 scale-y-0 bg-neutral-700 transition duration-500 group-hover:translate-y-0 group-hover:scale-150 dark:bg-[#ebe1f9]"></span>
-        <span className="z-10 text-white dark:text-black">{title}</span>
+        <span className="absolute size-full translate-y-full skew-y-12 scale-y-0 bg-[var(--site-surface-raised)] transition duration-500 group-hover:translate-y-0 group-hover:scale-150"></span>
+        <span className="z-10 text-[var(--site-ink)]">{title}</span>
       </div>
     </Link>
   );
