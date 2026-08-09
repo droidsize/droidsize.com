@@ -6,11 +6,15 @@ import { ProjectCard } from "@/components/projects/project-card";
 import { ProjectIndex } from "@/components/projects/project-index";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Work — Droidsize Technologies",
+  title: "Work — Droidsize",
   description:
     "Products built by Droidsize, open-source work, and selected products made with founders and partner companies.",
   path: "/work",
   image: "/projects/covers/domain-collective.png",
+  imageAlt:
+    "Registrar routes converging into one ordered domain portfolio for Domain Collective.",
+  imageWidth: 1731,
+  imageHeight: 909,
 });
 
 const featuredProjects = projects.filter((project) =>

@@ -1,14 +1,33 @@
 {
   "name": "Droidsize Technologies",
   "short_name": "Droidsize",
-  "description": "The official website of Droidsize Technologies Private Limited.",
+  "description": "A multidisciplinary product studio designing and building SaaS, AI, mobile, and open-source products from India.",
   "start_url": "/",
   "scope": "/",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "48x48",
-      "type": "image/x-icon"
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/maskable-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "theme_color": "#080808",

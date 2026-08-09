@@ -6,10 +6,15 @@ import { constructMetadata } from "@/lib/utils";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Merry Magic Mail Support | Droidsize Technologies",
+  title: "Merry Magic Mail Support — Droidsize",
   description:
     "Official support contact for Merry Magic Mail by Droidsize Technologies.",
   path: "/apps/merry-magic-mail/support",
+  image: "/projects/covers/merry-magic-mail.png",
+  imageAlt:
+    "A letter ribbon becoming a voice waveform as it travels across distance.",
+  imageWidth: 1732,
+  imageHeight: 908,
 });
 
 export default function MerryMagicMailSupportPage() {

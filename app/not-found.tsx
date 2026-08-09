@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Page not found | Droidsize Technologies",
+  title: "Page not found — Droidsize",
   robots: {
     index: false,
     follow: false,

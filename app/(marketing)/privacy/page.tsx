@@ -5,7 +5,7 @@ import { constructMetadata } from "@/lib/utils";
 import LegalDocument from "@/components/legal-document";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Privacy Notice | Droidsize Technologies",
+  title: "Privacy Notice — Droidsize",
   description:
     "How Droidsize Technologies handles information submitted through its corporate website.",
   path: "/privacy",

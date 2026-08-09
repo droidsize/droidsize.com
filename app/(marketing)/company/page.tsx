@@ -6,7 +6,7 @@ import ButtonHover from "@/components/ButtonHover";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Company | Droidsize Technologies",
+  title: "Company — Droidsize",
   description:
     "Corporate identity and operating details for Droidsize Technologies Private Limited.",
   path: "/company",

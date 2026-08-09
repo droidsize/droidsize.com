@@ -48,6 +48,8 @@ export interface ProjectLink {
 export interface ProjectCover {
   src: string;
   alt: string;
+  width: number;
+  height: number;
 }
 
 export interface OpenSourceDetails {
@@ -85,6 +87,8 @@ export const projects: ProjectRecord[] = [
     cover: {
       src: "/projects/covers/domain-collective.png",
       alt: "Registrar routes converging into one ordered domain portfolio.",
+      width: 1731,
+      height: 909,
     },
     cardSummary:
       "One place to see where every domain lives, what renews next, and whether DNS, SSL, or access needs attention.",
@@ -123,6 +127,8 @@ export const projects: ProjectRecord[] = [
     cover: {
       src: "/projects/covers/sparkle.png",
       alt: "A dense reading queue becoming a connected constellation of ideas.",
+      width: 1731,
+      height: 908,
     },
     cardSummary:
       "Turn saved articles and text into concise visual stories, then organise them into Constellations you will want to revisit.",
@@ -165,6 +171,8 @@ export const projects: ProjectRecord[] = [
     cover: {
       src: "/projects/covers/repopress.png",
       alt: "Repository branches passing through editorial gates into a published document.",
+      width: 1733,
+      height: 907,
     },
     cardSummary:
       "A visual editor for Markdown and MDX repositories, with review, history, and publishing built around Git.",
@@ -213,6 +221,8 @@ export const projects: ProjectRecord[] = [
     cover: {
       src: "/projects/covers/merry-magic-mail.png",
       alt: "A letter ribbon becoming a voice waveform as it travels across distance.",
+      width: 1732,
+      height: 908,
     },
     cardSummary:
       "A Christmas product that turns a child's letter into a personalised reply, audio moment, wishlist, and keepsake.",
@@ -255,6 +265,8 @@ export const projects: ProjectRecord[] = [
     cover: {
       src: "/projects/covers/cadenza.png",
       alt: "A data spine passing through a sequence of presentation frames.",
+      width: 1732,
+      height: 908,
     },
     cardSummary:
       "Turn raw data and a brand template into a deck your team can still edit, share, and export.",
@@ -293,6 +305,8 @@ export const projects: ProjectRecord[] = [
     cover: {
       src: "/projects/covers/copycanvas.png",
       alt: "Interface copy moving from scattered fragments into a clear product flow.",
+      width: 1732,
+      height: 908,
     },
     cardSummary:
       "Review interface copy in context, compare alternatives, and keep every decision attached to the screen and flow it affects.",
@@ -331,6 +345,8 @@ export const projects: ProjectRecord[] = [
     cover: {
       src: "/projects/covers/turbocamp.png",
       alt: "Modular product systems moving through a shared software foundation.",
+      width: 1732,
+      height: 908,
     },
     cardSummary:
       "An opinionated SaaS foundation for teams that want the common product systems in place before they build what makes the business different.",

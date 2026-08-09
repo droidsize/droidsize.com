@@ -5,7 +5,7 @@ import { constructMetadata } from "@/lib/utils";
 import LegalDocument from "@/components/legal-document";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Website Terms | Droidsize Technologies",
+  title: "Website Terms — Droidsize",
   description:
     "Terms governing use of the Droidsize Technologies corporate website.",
   path: "/terms",

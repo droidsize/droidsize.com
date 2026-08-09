@@ -6,7 +6,7 @@ import { constructMetadata } from "@/lib/utils";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Contact | Droidsize Technologies",
+  title: "Contact — Droidsize",
   description:
     "Contact Droidsize Technologies about a product, project, company matter, or support request.",
   path: "/contact",

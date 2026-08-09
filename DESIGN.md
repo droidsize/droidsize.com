@@ -87,3 +87,10 @@ The Work directory and project pages form a self-contained editorial world insid
 - Never encode meaning through color alone.
 - Preserve semantic headings, landmarks, skip navigation, keyboard focus trapping, and escape-to-close behavior.
 - Verify the homepage, company, contact, legal, and product-support routes at desktop and mobile widths after visual changes.
+
+## Brand assets and social previews
+
+- Browser icons use the supplied Droidsize mark on a white rounded tile with an inset neutral border. The fixed white field keeps the mark legible against both light and dark browser chrome.
+- The square mark retains generous safe-area padding; the maskable application icon uses an additional platform-safe inset.
+- The default social card is a 1200 × 630 near-black editorial composition with the official mark, a concise positioning line, and the canonical domain. Project pages use their own abstract cover art.
+- Social metadata uses the public `@droidsize` X account alongside the verified LinkedIn and GitHub profiles.

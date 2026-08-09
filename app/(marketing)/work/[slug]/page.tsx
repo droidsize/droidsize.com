@@ -29,17 +29,20 @@ export async function generateMetadata({
 
   if (!project) {
     return constructMetadata({
-      title: "Project not found — Droidsize Technologies",
+      title: "Project not found — Droidsize",
       path: `/work/${slug}`,
       noIndex: true,
     });
   }
 
   return constructMetadata({
-    title: `${project.name} — Droidsize Technologies`,
+    title: `${project.name} — Droidsize`,
     description: project.cardSummary,
     path: `/work/${project.slug}`,
     image: project.cover.src,
+    imageAlt: project.cover.alt,
+    imageWidth: project.cover.width,
+    imageHeight: project.cover.height,
   });
 }
 
