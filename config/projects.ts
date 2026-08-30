@@ -214,9 +214,9 @@ export const projects: ProjectRecord[] = [
   {
     slug: "merry-magic-mail",
     name: "Merry Magic Mail",
-    relationship: "Built by Droidsize for Eva Interactive Co.",
-    status: "Partner product",
-    categories: ["partner-work"],
+    relationship: "A Droidsize product",
+    status: "Live",
+    categories: ["droidsize-product"],
     selected: true,
     cover: {
       src: "/projects/covers/merry-magic-mail.png",
@@ -234,7 +234,7 @@ export const projects: ProjectRecord[] = [
     productStory:
       "Children can write or upload a letter, receive a personalised response, listen to Santa, build a wishlist, and share the moment with family. The product also supports gift coordination and physical-letter fulfilment where available.",
     droidsizeRole:
-      "Product consulting, experience design, web and mobile engineering, AI voice and content workflows, commerce, and fulfilment integrations.",
+      "Product strategy, experience design, web and mobile engineering, AI voice and content workflows, commerce, and fulfilment integrations.",
     links: [
       {
         href: "https://merrymagicmail.com",
@@ -293,6 +293,46 @@ export const projects: ProjectRecord[] = [
       { name: "PostgreSQL", icon: "postgresql", role: "Product data" },
       { name: "Prisma", icon: "prisma", role: "Data modelling" },
       { name: "PptxGenJS", icon: "presentation", role: "PowerPoint export" },
+    ],
+  },
+  {
+    slug: "triplewave",
+    name: "TripleWave",
+    relationship: "A Droidsize product",
+    status: "Active development",
+    categories: ["droidsize-product", "building-now"],
+    selected: true,
+    cover: {
+      src: "/projects/covers/triplewave.png",
+      alt: "Paper waves carrying document blocks into one precisely aligned page.",
+      width: 1732,
+      height: 908,
+    },
+    cardSummary:
+      "Describe the document you need, and it arrives drafted on your letterhead — ready to refine, review, and send.",
+    heroTitle: "AI drafts. Real documents.",
+    heroIntroduction:
+      "TripleWave turns a plain-language request into a professional document on your company's letterhead. A real document editor with true pagination keeps the words and the layout in the same place, from first draft to signed PDF.",
+    problem:
+      "Company documents live between a word processor and a design tool. The words are edited in one place, the layout breaks in another, and review happens over email with no record of what changed.",
+    productStory:
+      "Describe the offer letter, proposal, agreement, or invoice you need. TripleWave drafts it onto your branded letterhead, keeps pagination true while you refine the words, and carries the document through review, e-signing, and PDF export.",
+    droidsizeRole:
+      "Product strategy, editor architecture, AI drafting workflows, brand and layout systems, and full-stack engineering.",
+    links: [
+      {
+        href: "https://triplewave.co",
+        label: "Visit TripleWave",
+        kind: "product",
+      },
+    ],
+    stack: [
+      { name: "Next.js", icon: "nextdotjs", role: "Application framework" },
+      { name: "React", icon: "react", role: "Document editor" },
+      { name: "TypeScript", icon: "typescript", role: "Product code" },
+      { name: "Vercel AI SDK", icon: "vercel", role: "AI drafting" },
+      { name: "PostgreSQL", icon: "postgresql", role: "Product data" },
+      { name: "Prisma", icon: "prisma", role: "Data modelling" },
     ],
   },
   {
