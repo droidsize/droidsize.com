@@ -99,13 +99,13 @@ export default function Footer() {
               </p>
             </address>
             <Link
-              href="/apps/merry-magic-mail/support"
+              href="/support"
               className={cn(
                 "border-current/40 mt-5 inline-flex min-h-10 items-center border-b text-sm transition-opacity duration-200 hover:opacity-55 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current",
                 mutedClass,
               )}
             >
-              Merry Magic Mail support
+              Support centre
             </Link>
           </div>
         </div>

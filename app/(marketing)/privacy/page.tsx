@@ -127,7 +127,7 @@ export default function PrivacyPage() {
       </address>
       <p>
         For product help, visit the{" "}
-        <Link href="/apps/merry-magic-mail/support">
+        <Link href="/support">
           Merry Magic Mail support page
         </Link>
         .

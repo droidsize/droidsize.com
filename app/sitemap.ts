@@ -5,11 +5,13 @@ import { projects } from "@/config/projects";
 const routes = [
   "",
   "/work",
+  "/studio",
+  "/about",
   "/company",
   "/contact",
+  "/support",
   "/privacy",
   "/terms",
-  "/apps/merry-magic-mail/support",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -14,19 +14,24 @@ export const metadata: Metadata = constructMetadata({
 
 const contactRoutes = [
   {
-    label: "New projects and company enquiries",
+    label: "Build a product with us",
     value: "contact@droidsize.com",
-    href: "mailto:contact@droidsize.com",
+    href: "mailto:contact@droidsize.com?subject=Product%20enquiry",
   },
   {
-    label: "Call",
+    label: "Call the studio",
     value: "+91 99580 07011",
     href: "tel:+919958007011",
   },
   {
-    label: "Merry Magic Mail support",
-    value: "Open product support",
-    href: "/apps/merry-magic-mail/support",
+    label: "Product support",
+    value: "Support centre",
+    href: "/support",
+  },
+  {
+    label: "Privacy or grievance",
+    value: "Company information",
+    href: "/company",
   },
 ];
 
@@ -41,7 +46,7 @@ export default function ContactPage() {
           Tell us what you&apos;re building.
         </h1>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-[var(--site-line)] bg-white/15 lg:grid-cols-3">
+        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-[var(--site-line)] bg-white/15 lg:grid-cols-2 xl:grid-cols-4">
           {contactRoutes.map((route) => (
             <Link
               key={route.label}
