@@ -110,17 +110,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-current/20 grid gap-6 border-t py-7 text-xs leading-6 sm:grid-cols-[1fr_auto] sm:items-start">
-          <div className={cn("max-w-4xl", mutedClass)}>
-            <p>
-              &copy; 2019–{new Date().getFullYear()} DROIDSIZE TECHNOLOGIES
-              PRIVATE LIMITED · CIN U72200DL2019PTC347342
-            </p>
-            <address className="mt-1 not-italic">
-              Registered office: 190, Baba Faridpuri, West Patel Nagar, New
-              Delhi, Delhi 110008, India
-            </address>
-          </div>
+        <div className="border-current/20 flex flex-wrap items-center justify-between gap-4 border-t py-6 text-xs leading-6">
+          <p className={mutedClass}>
+            &copy; 2019–{new Date().getFullYear()} Droidsize Technologies Pvt.
+            Ltd. · Made in New Delhi
+          </p>
           <ul className="flex gap-5 text-sm">
             {footerPolicy.items.map((item) => (
               <li key={item.href}>
