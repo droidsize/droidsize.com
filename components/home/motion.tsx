@@ -75,6 +75,22 @@ export function SlideIn({ children, delay = 0, className }: RevealProps) {
 }
 
 /**
+ * Gates CSS draw/pop animations inside SVG artwork: children carrying
+ * `.hm-stroke`, `.hm-pop`, or `.hm-rise` start once this wrapper enters
+ * the viewport (see styles/home.css).
+ */
+export function DrawOnView({ children, className }: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  return (
+    <div ref={ref} className={className} data-draw={isInView ? "in" : "idle"}>
+      {children}
+    </div>
+  );
+}
+
+/**
  * Media reveals through a restrained vertical clip, once, on enter.
  * The observer sits on an unclipped wrapper: Chrome reports zero
  * intersection for an element fully hidden by its own clip-path.

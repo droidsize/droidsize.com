@@ -4,7 +4,7 @@ import { projects } from "@/config/projects";
 import TextRevealOnScroll from "@/components/text-reveal-on-scroll";
 
 import { DelhiSketch, HeroMapLines, RailsStack } from "./art";
-import { ClipReveal, MaskRise, Rise, SlideIn } from "./motion";
+import { ClipReveal, DrawOnView, MaskRise, Rise, SlideIn } from "./motion";
 
 /* ————— Hero ————— */
 
@@ -29,7 +29,9 @@ export function HomeHero() {
           </Rise>
         </div>
         <SlideIn className="home-hero-art" delay={0.25}>
-          <HeroMapLines />
+          <DrawOnView>
+            <HeroMapLines />
+          </DrawOnView>
         </SlideIn>
       </div>
     </section>
@@ -238,9 +240,9 @@ export function HomeRails() {
             </p>
           </Rise>
         </div>
-        <SlideIn className="home-art" delay={0.15}>
+        <DrawOnView className="home-art">
           <RailsStack />
-        </SlideIn>
+        </DrawOnView>
       </div>
       <div className="home-shell">
         <div className="home-steps">
@@ -460,9 +462,9 @@ export function HomeDelhi() {
             <span className="home-tagpill">In development · not yet open</span>
           </Rise>
         </div>
-        <ClipReveal className="home-art" delay={0.12}>
+        <DrawOnView className="home-art">
           <DelhiSketch />
-        </ClipReveal>
+        </DrawOnView>
       </div>
     </section>
   );

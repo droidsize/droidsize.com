@@ -66,8 +66,8 @@
   grid-template-columns: 1.05fr 0.95fr;
   gap: 60px;
   align-items: center;
-  padding-top: 104px;
-  padding-bottom: 110px;
+  padding-top: 120px;
+  padding-bottom: 140px;
 }
 .home-hero p {
   max-width: 430px;
@@ -139,12 +139,12 @@
 
 /* product chapters */
 .home-chapter {
-  padding: 120px 0;
+  padding: 170px 0;
 }
 .home-chapter .home-shell {
   display: grid;
   grid-template-columns: 0.82fr 1.18fr;
-  gap: 70px;
+  gap: 88px;
   align-items: center;
 }
 .home-chapter.home-flip .home-shell {
@@ -174,7 +174,7 @@
 }
 @media (max-width: 900px) {
   .home-chapter {
-    padding: 78px 0;
+    padding: 96px 0;
   }
   .home-chapter .home-shell,
   .home-chapter.home-flip .home-shell {
@@ -380,13 +380,13 @@
 
 /* rails */
 .home-rails {
-  padding: 120px 0;
+  padding: 170px 0;
   border-top: 1px solid var(--site-line);
 }
 .home-rails .home-shell.home-rails-grid {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
-  gap: 80px;
+  gap: 96px;
   align-items: center;
 }
 .home-rails p {
@@ -431,7 +431,7 @@
 }
 @media (max-width: 900px) {
   .home-rails {
-    padding: 78px 0;
+    padding: 96px 0;
   }
   .home-rails .home-shell.home-rails-grid {
     grid-template-columns: 1fr;
@@ -447,7 +447,7 @@
 
 /* index */
 .home-index {
-  padding: 112px 0 122px;
+  padding: 150px 0 160px;
   border-top: 1px solid var(--site-line);
 }
 .home-index-head {
@@ -510,7 +510,7 @@
 }
 @media (max-width: 900px) {
   .home-index {
-    padding: 74px 0 84px;
+    padding: 92px 0 100px;
   }
   .home-irow {
     grid-template-columns: 44px 1fr 30px;
@@ -523,7 +523,7 @@
 
 /* delhi */
 .home-delhi {
-  padding: 120px 0;
+  padding: 170px 0;
   border-top: 1px solid var(--site-line);
 }
 .home-delhi .home-shell {
@@ -556,7 +556,7 @@
 }
 @media (max-width: 900px) {
   .home-delhi {
-    padding: 78px 0;
+    padding: 96px 0;
   }
   .home-delhi .home-shell {
     grid-template-columns: 1fr;
@@ -568,7 +568,7 @@
 .home-close {
   background: var(--site-inverse);
   color: var(--site-inverse-ink);
-  padding: 100px 0 90px;
+  padding: 130px 0 110px;
 }
 .home-close .home-eyebrow {
   color: color-mix(in srgb, var(--site-inverse-ink) 55%, transparent);
@@ -630,5 +630,112 @@
   .home-caps {
     grid-template-columns: 1fr 1fr;
     gap: 28px;
+  }
+}
+
+
+/* --- homepage artwork animations (gated by DrawOnView) --- */
+@media (prefers-reduced-motion: no-preference) {
+  [data-draw] .hm-stroke {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  [data-draw="in"] .hm-stroke {
+    animation: hm-draw 1.5s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+    animation-delay: calc(var(--d, 0) * 1ms);
+  }
+  @keyframes hm-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  [data-draw] .hm-pop {
+    opacity: 0;
+    transform: scale(0.4);
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  [data-draw="in"] .hm-pop {
+    animation: hm-pop 0.55s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+    animation-delay: calc(var(--d, 0) * 1ms);
+  }
+  @keyframes hm-pop {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  [data-draw] .hm-rise {
+    opacity: 0;
+    transform: translateY(26px);
+    transform-box: fill-box;
+  }
+  [data-draw="in"] .hm-rise {
+    animation: hm-rise-in 0.8s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+    animation-delay: calc(var(--d, 0) * 1ms);
+  }
+  @keyframes hm-rise-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  [data-draw="in"] .hm-float {
+    animation: hm-float 7s ease-in-out infinite;
+    animation-delay: calc(var(--d, 0) * 1ms + 900ms);
+    transform-box: fill-box;
+  }
+
+  /* rise once, then float forever — one composed animation set */
+  [data-draw] .hm-assemble {
+    opacity: 0;
+    transform: translateY(26px);
+    transform-box: fill-box;
+  }
+  [data-draw="in"] .hm-assemble {
+    animation:
+      hm-rise-in 0.8s cubic-bezier(0.33, 1, 0.68, 1) forwards,
+      hm-float 7s ease-in-out infinite;
+    animation-delay:
+      calc(var(--d, 0) * 1ms),
+      calc(var(--d, 0) * 1ms + 1400ms);
+  }
+  @keyframes hm-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-7px);
+    }
+  }
+
+  [data-draw="in"] .hm-pulse {
+    animation: hm-pulse 3.4s ease-in-out infinite;
+    animation-delay: calc(var(--d, 0) * 1ms + 700ms);
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @keyframes hm-pulse {
+    0%,
+    100% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.22);
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-draw] .hm-pop,
+  [data-draw] .hm-rise,
+  [data-draw] .hm-assemble {
+    opacity: 1;
+    transform: none;
   }
 }
