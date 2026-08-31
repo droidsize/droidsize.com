@@ -1,18 +1,9 @@
+import { Instrument_Sans } from "next/font/google";
 import localFont from "next/font/local";
 
-export const fontSans = localFont({
-  src: [
-    {
-      path: "./Inter-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./Inter-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+export const fontSans = Instrument_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });

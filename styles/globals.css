@@ -4,35 +4,45 @@
 
 @layer base {
   :root {
-    --background: 0 0% 3%;
-    --foreground: 60 14% 95%;
-    --card: 0 0% 6%;
-    --card-foreground: 60 14% 95%;
-    --popover: 0 0% 6%;
-    --popover-foreground: 60 14% 95%;
-    --primary: 60 14% 95%;
-    --primary-foreground: 0 0% 3%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 60 14% 95%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 60 3% 67%;
-    --accent: 60 14% 95%;
-    --accent-foreground: 0 0% 3%;
+    --background: 45 24% 93%;
+    --foreground: 30 7% 10%;
+    --card: 45 33% 97%;
+    --card-foreground: 30 7% 10%;
+    --popover: 45 33% 97%;
+    --popover-foreground: 30 7% 10%;
+    --primary: 30 7% 10%;
+    --primary-foreground: 45 24% 93%;
+    --secondary: 44 18% 90%;
+    --secondary-foreground: 30 7% 10%;
+    --muted: 44 18% 90%;
+    --muted-foreground: 36 7% 40%;
+    --accent: 30 7% 10%;
+    --accent-foreground: 45 24% 93%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 17%;
-    --input: 0 0% 17%;
-    --ring: 60 14% 95%;
+    --border: 45 16% 82%;
+    --input: 45 16% 82%;
+    --ring: 30 7% 10%;
     --radius: 0.5rem;
 
-    --site-canvas: #080808;
-    --site-surface: #101010;
-    --site-surface-raised: #171717;
-    --site-ink: #f3f3ee;
-    --site-muted: #aaa9a4;
-    --site-line: #2b2b2b;
-    --site-inverse: #f3f3ee;
-    --site-inverse-ink: #080808;
+    /* Droidsize light editorial system */
+    --site-canvas: #f2f0ea;
+    --site-surface: #fbfaf6;
+    --site-surface-raised: #ece9e1;
+    --site-ink: #1b1917;
+    --site-muted: #6e695f;
+    --site-faint: #948f84;
+    --site-line: #d9d5ca;
+    --site-line-strong: #b9b4a6;
+    --site-inverse: #121110;
+    --site-inverse-ink: #f5f3ee;
+    --site-cream: #efe8d9;
+
+    --accent-blue: #2b45c4;
+    --accent-orange: #e85b25;
+    --accent-yellow: #ffce1b;
+    --accent-green: #17513c;
+    --accent-navy: #1e2c4e;
 
     --work-canvas: #fafaf8;
     --work-surface: #f2f2ee;
@@ -49,8 +59,21 @@
   }
 
   .dark {
-    --background: 0 0% 3%;
-    --foreground: 60 14% 95%;
+    /* Droidsize dark editorial system */
+    --site-canvas: #0e0d0c;
+    --site-surface: #161514;
+    --site-surface-raised: #1d1b19;
+    --site-ink: #f0eee8;
+    --site-muted: #a5a099;
+    --site-faint: #7d7870;
+    --site-line: #2a2825;
+    --site-line-strong: #3a3733;
+    --site-inverse: #f5f3ee;
+    --site-inverse-ink: #121110;
+    --site-cream: #efe8d9;
+
+    --background: 30 6% 5%;
+    --foreground: 45 14% 92%;
     --card: 0 0% 6%;
     --card-foreground: 60 14% 95%;
     --popover: 0 0% 6%;
@@ -97,16 +120,16 @@
 ::-webkit-scrollbar {
   height: 5px;
   width: 5px;
-  background: rgb(61, 61, 61);
+  background: var(--site-surface-raised);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(118, 118, 118);
+  background: var(--site-line-strong);
   -webkit-border-radius: 1ex;
 }
 
 ::-webkit-scrollbar-corner {
-  background: rgb(61, 61, 61);
+  background: var(--site-surface-raised);
 }
 
 @layer base {
@@ -136,15 +159,15 @@
 }
 
 .legal-copy {
-  @apply max-w-3xl text-base leading-relaxed text-white/75 sm:text-lg;
+  @apply max-w-3xl text-base leading-relaxed text-[var(--site-muted)] sm:text-lg;
 }
 
 .legal-copy h2 {
-  @apply mb-4 mt-12 text-3xl font-semibold tracking-tight text-white sm:text-4xl;
+  @apply mb-4 mt-12 text-3xl font-semibold tracking-tight text-[var(--site-ink)] sm:text-4xl;
 }
 
 .legal-copy h3 {
-  @apply mb-3 mt-8 text-2xl font-semibold tracking-tight text-white;
+  @apply mb-3 mt-8 text-2xl font-semibold tracking-tight text-[var(--site-ink)];
 }
 
 .legal-copy p {
@@ -156,7 +179,7 @@
 }
 
 .legal-copy a {
-  @apply font-medium text-white underline decoration-white/40 underline-offset-4;
+  @apply font-medium text-[var(--site-ink)] underline decoration-[var(--site-line-strong)] underline-offset-4;
 }
 
 .legal-copy address {

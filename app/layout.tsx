@@ -17,11 +17,8 @@ export const metadata = constructMetadata();
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  colorScheme: "dark light",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafaf8" },
-    { media: "(prefers-color-scheme: dark)", color: "#080808" },
-  ],
+  colorScheme: "light",
+  themeColor: "#f2f0ea",
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {

@@ -116,7 +116,7 @@ export default function TextRevealOnScroll({
     <section
       ref={containerRef}
       aria-label={phrase}
-      className="flex min-h-screen items-center justify-center py-[20vh] text-[rgb(211,211,211)] md:min-h-screen"
+      className="flex min-h-[75vh] items-center justify-center py-[14vh] text-[var(--site-ink)]"
     >
       <div aria-hidden="true" className="flex w-[90%] flex-wrap">
         {splitWords(phrase)}

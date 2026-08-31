@@ -115,7 +115,7 @@ export default function Navbar() {
             priority
             className={cn(
               "h-[1.9rem] w-auto",
-              isWorkRoute ? "dark:invert" : "invert",
+              "dark:invert",
             )}
           />
           <span className="text-xl font-medium tracking-[-0.03em]">
@@ -126,11 +126,8 @@ export default function Navbar() {
         <ul className="hidden items-center gap-9 text-sm min-[900px]:flex">
           {navigation.map((item) => {
             const isCurrent =
-              item.href === "/work"
-                ? pathname === "/work"
-                : item.href === "/company"
-                  ? pathname === "/company"
-                  : false;
+              pathname === item.href ||
+              (item.href === "/work" && pathname.startsWith("/work/"));
 
             return (
               <li key={item.href}>
@@ -151,10 +148,10 @@ export default function Navbar() {
             href="/contact"
             className="inline-flex min-h-11 items-center gap-1.5 text-sm transition-opacity duration-200 hover:opacity-55 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current"
           >
-            Discuss a product
+            Let&apos;s talk
             <ArrowUpRight aria-hidden="true" className="size-3.5" />
           </Link>
-          {isWorkRoute ? <ThemeSwitch className="ml-3" /> : null}
+          <ThemeSwitch className="ml-3" />
         </div>
 
         <button
@@ -220,7 +217,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="inline-flex min-h-11 items-center gap-2 text-lg font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current"
             >
-              Discuss a product
+              Let&apos;s talk
               <ArrowUpRight aria-hidden="true" className="size-4" />
             </Link>
             <div className="mt-7 flex items-center justify-between gap-5">
@@ -238,7 +235,7 @@ export default function Navbar() {
                   </li>
                 ))}
               </ul>
-              {isWorkRoute ? <ThemeSwitch /> : null}
+              <ThemeSwitch />
             </div>
           </div>
         </div>

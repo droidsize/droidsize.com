@@ -35,7 +35,7 @@ export default function Footer() {
                 height={30}
                 className={cn(
                   "h-[1.9rem] w-auto",
-                  isWorkRoute ? "dark:invert" : "invert",
+                  "dark:invert",
                 )}
               />
               <span className="text-xl font-medium tracking-[-0.03em]">

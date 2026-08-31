@@ -41,7 +41,7 @@ export default function ContactPage() {
           Tell us what you&apos;re building.
         </h1>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/15 bg-white/15 lg:grid-cols-3">
+        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-[var(--site-line)] bg-white/15 lg:grid-cols-3">
           {contactRoutes.map((route) => (
             <Link
               key={route.label}
@@ -62,11 +62,11 @@ export default function ContactPage() {
           ))}
         </div>
 
-        <div className="mt-16 grid gap-8 border-t border-white/20 pt-10 md:grid-cols-2">
+        <div className="mt-16 grid gap-8 border-t border-[var(--site-line)] pt-10 md:grid-cols-2">
           <h2 className="text-4xl font-semibold tracking-tight sm:text-6xl">
             Registered office
           </h2>
-          <address className="text-xl not-italic leading-relaxed text-white/70 sm:text-2xl">
+          <address className="text-xl not-italic leading-relaxed text-[var(--site-muted)] sm:text-2xl">
             DROIDSIZE TECHNOLOGIES PRIVATE LIMITED
             <br />
             190, Baba Faridpuri, West Patel Nagar
