@@ -1,30 +1,33 @@
 import { SidebarNavItem, SiteConfig } from "types";
-import { env } from "@/env.mjs";
 
-const site_url = env.NEXT_PUBLIC_APP_URL;
+const site_url = "https://www.droidsize.com";
 
 export const siteConfig: SiteConfig = {
-  name: "Droidsize - Agency",
-  description: "description",
+  name: "Droidsize",
+  title: "Droidsize — Software products and systems",
+  description:
+    "Droidsize is a multidisciplinary product studio designing and building SaaS, AI, mobile, and open-source products from India.",
   url: site_url,
-  ogImage: `${site_url}/_static/og.jpg`,
+  ogImage: `${site_url}/opengraph-image.png`,
+  ogImageAlt:
+    "Droidsize — software products and the systems behind them, built from India.",
   links: {
-    twitter: "https://twitter.com/droidsize",
     github: "https://github.com/droidsize",
+    linkedin: "https://www.linkedin.com/company/droidsize/",
+    x: "https://x.com/droidsize",
   },
   mailSupport: "contact@droidsize.com",
 };
 
 export const footerLinks: SidebarNavItem[] = [
   {
-    title: "Company",
+    title: "Explore",
     items: [
-      { title: "Works", href: "#" },
-      { title: "About", href: "#" },
-      { title: "Award", href: "#" },
-      { title: "Services", href: "#" },
-      { title: "Blog", href: "#" },
-      { title: "Careers", href: "#" },
+      { title: "Home", href: "/" },
+      { title: "Work", href: "/work" },
+      { title: "Studio", href: "/studio" },
+      { title: "About", href: "/about" },
+      { title: "Contact", href: "/contact" },
     ],
   },
 ];
@@ -32,19 +35,17 @@ export const footerLinks: SidebarNavItem[] = [
 export const footerSocials = {
   title: "Socials",
   items: [
-    { title: "X", href: "#" },
-    { title: "Insgtagram", href: "#" },
-    { title: "Linkedin", href: "https://www.linkedin.com/company/droidsize/" },
+    { title: "X", href: "https://x.com/droidsize" },
+    { title: "LinkedIn", href: "https://www.linkedin.com/company/droidsize/" },
+    { title: "GitHub", href: "https://github.com/droidsize" },
   ],
 };
 
 export const footerPolicy = {
   title: "Policies",
   items: [
+    { title: "Company", href: "/company" },
     { title: "Privacy", href: "/privacy" },
     { title: "Terms", href: "/terms" },
-    { title: "Return & Refund", href: "/refund" },
-    { title: "Disclaimer", href: "/disclaimer" },
-    { title: "Sitemap", href: "/sitemap" },
   ],
 };
