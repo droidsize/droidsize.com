@@ -193,7 +193,7 @@ export const projects: ProjectRecord[] = [
       },
       {
         href: "https://github.com/itsyogesh/repo-press",
-        label: "View source",
+        label: "GitHub",
         kind: "source",
       },
     ],
@@ -402,7 +402,7 @@ export const projects: ProjectRecord[] = [
     links: [
       {
         href: "https://github.com/droidsize/turbocamp",
-        label: "View source",
+        label: "GitHub",
         kind: "source",
       },
     ],
