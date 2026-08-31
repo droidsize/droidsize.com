@@ -19,7 +19,7 @@ export default function Footer() {
     : "text-[var(--site-muted)]";
 
   return (
-    <footer className={cn("border-t", surfaceClass)}>
+    <footer className={cn("overflow-hidden border-t", surfaceClass)}>
       <div className="mx-auto max-w-[1392px] px-5 sm:px-8">
         <div className="grid gap-12 py-12 sm:py-16 lg:grid-cols-[1.2fr_0.8fr_0.9fr] lg:gap-20">
           <div>
@@ -127,6 +127,12 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div aria-hidden="true" className="pointer-events-none select-none">
+          <p className="-mb-[0.24em] whitespace-nowrap text-center text-[clamp(88px,13.5vw,208px)] font-semibold leading-none tracking-[-0.04em] text-[color-mix(in_srgb,currentColor_8%,transparent)]">
+            Droidsize
+          </p>
         </div>
       </div>
     </footer>

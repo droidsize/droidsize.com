@@ -52,115 +52,151 @@ export async function GET(request: Request) {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
           background: PAPER,
-          padding: "64px 72px",
           fontFamily: "Inter",
+          position: "relative",
         }}
       >
-        {/* top bar */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
+        {/* isometric stack, right side */}
+        <svg
+          width="560"
+          height="630"
+          viewBox="0 0 560 630"
+          style={{ position: "absolute", right: -30, top: 0 }}
         >
-          <div
-            style={{
-              display: "flex",
-              fontSize: 34,
-              fontWeight: 700,
-              letterSpacing: "0.1px",
-              color: INK,
-            }}
-          >
-            Droidsize
-          </div>
-          <div style={{ display: "flex", gap: 12 }}>
-            {[ACCENTS.green, ACCENTS.orange, accent].map((color, i) => (
-              <div
-                key={i}
-                style={{
-                  display: "flex",
-                  width: 16,
-                  height: 16,
-                  borderRadius: 999,
-                  background: color,
-                }}
-              />
-            ))}
-          </div>
-        </div>
+          {[430, 330, 230].map((cy, idx) => {
+            const dw = 205;
+            const dh = 88;
+            const t = 24;
+            const cx = 290;
+            const topFill = idx % 2 === 0 ? "#ece9e1" : "#fbfaf6";
+            return (
+              <g key={cy}>
+                <path
+                  d={`M ${cx - dw} ${cy} L ${cx} ${cy + dh} L ${cx} ${cy + dh + t} L ${cx - dw} ${cy + t} Z`}
+                  fill="#d6d2c6"
+                  stroke={INK}
+                  strokeWidth="2"
+                />
+                <path
+                  d={`M ${cx + dw} ${cy} L ${cx} ${cy + dh} L ${cx} ${cy + dh + t} L ${cx + dw} ${cy + t} Z`}
+                  fill="#e3dfd3"
+                  stroke={INK}
+                  strokeWidth="2"
+                />
+                <path
+                  d={`M ${cx} ${cy - dh} L ${cx + dw} ${cy} L ${cx} ${cy + dh} L ${cx - dw} ${cy} Z`}
+                  fill={topFill}
+                  stroke={INK}
+                  strokeWidth="2"
+                />
+              </g>
+            );
+          })}
+          <path
+            d="M290 118 V560"
+            stroke={INK}
+            strokeWidth="1.6"
+            strokeDasharray="4 8"
+            opacity="0.55"
+          />
+          <path d="M190 60 V172" stroke={INK} strokeWidth="2" />
+          <path d="M290 44 V130" stroke={INK} strokeWidth="2" />
+          <path d="M390 60 V172" stroke={INK} strokeWidth="2" />
+          <circle cx="190" cy="54" r="9" fill={accent} />
+          <circle cx="290" cy="38" r="10" fill={ACCENTS.orange} />
+          <circle cx="390" cy="54" r="9" fill={ACCENTS.green} />
+          <circle cx="102" cy="330" r="7" fill={accent} />
+          <circle cx="120" cy="430" r="7" fill={ACCENTS.yellow} stroke={INK} strokeWidth="1.5" />
+          <circle cx="112" cy="230" r="7" fill={ACCENTS.orange} />
+        </svg>
 
-        {/* title block */}
+        {/* text column */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: 26,
-            maxWidth: 980,
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              fontSize: 22,
-              fontWeight: 700,
-              letterSpacing: "4px",
-              textTransform: "uppercase",
-              color: FAINT,
-            }}
-          >
-            {eyebrow}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              fontSize: title.length > 60 ? 62 : 76,
-              fontWeight: 700,
-              lineHeight: 1.06,
-              letterSpacing: "-2.5px",
-              color: INK,
-            }}
-          >
-            {title}
-          </div>
-        </div>
-
-        {/* bottom bar with routing motif */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
             justifyContent: "space-between",
-            borderTop: `2px solid ${LINE}`,
-            paddingTop: 32,
+            padding: "60px 0 56px 72px",
+            width: 680,
           }}
         >
-          <div style={{ display: "flex", fontSize: 24, color: MUTED }}>
-            {meta}
-          </div>
-          <svg
-            width="330"
-            height="80"
-            viewBox="0 0 330 80"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 14,
+            }}
           >
-            <path
-              d="M0 24 H140 Q152 24 152 36 V56 Q152 68 164 68 H330"
-              stroke={INK}
-              strokeWidth="2.5"
-              fill="none"
+            <div
+              style={{
+                display: "flex",
+                fontSize: 32,
+                fontWeight: 700,
+                letterSpacing: "0.1px",
+                color: INK,
+              }}
+            >
+              Droidsize
+            </div>
+            <div
+              style={{
+                display: "flex",
+                width: 8,
+                height: 8,
+                borderRadius: 999,
+                background: accent,
+                marginTop: 4,
+              }}
             />
-            <path d="M80 68 H30" stroke={INK} strokeWidth="2.5" fill="none" />
-            <circle cx="24" cy="68" r="8" fill={ACCENTS.orange} />
-            <circle cx="216" cy="68" r="7" fill={accent} />
-            <circle cx="316" cy="24" r="8" fill={ACCENTS.green} />
-            <path d="M240 24 H308" stroke={INK} strokeWidth="2.5" fill="none" />
-          </svg>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+            <div
+              style={{
+                display: "flex",
+                fontSize: 21,
+                fontWeight: 700,
+                letterSpacing: "4px",
+                textTransform: "uppercase",
+                color: FAINT,
+              }}
+            >
+              {eyebrow}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                fontSize: title.length > 58 ? 60 : 74,
+                fontWeight: 700,
+                lineHeight: 1.05,
+                letterSpacing: "-2.5px",
+                color: INK,
+              }}
+            >
+              {title}
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 18,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                width: 44,
+                height: 3,
+                background: INK,
+              }}
+            />
+            <div style={{ display: "flex", fontSize: 23, color: MUTED }}>
+              {meta}
+            </div>
+          </div>
         </div>
       </div>
     ),
