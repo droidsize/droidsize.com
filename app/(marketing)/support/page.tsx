@@ -9,6 +9,7 @@ export const metadata: Metadata = constructMetadata({
   description:
     "Product support for Droidsize products is handled per product. Find the right destination for help, privacy, and account matters.",
   path: "/support",
+  image: "/api/og?eyebrow=Support&title=How%20can%20we%20help%3F&accent=green",
 });
 
 const PRODUCTS = [
@@ -25,7 +26,7 @@ const PRODUCTS = [
     email: null,
   },
   {
-    name: "Sparkle",
+    name: "Sparkles",
     summary: "Saved reading turned into visual stories.",
     site: "https://trysparkles.app",
     email: null,

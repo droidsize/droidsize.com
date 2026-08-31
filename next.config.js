@@ -65,6 +65,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/work/sparkle",
+        destination: "/work/sparkles",
+        permanent: true,
+      },
+      {
         // Product support lives on the product's own domain; this legacy
         // route stays only for store metadata that still references it.
         source: "/apps/merry-magic-mail/support",

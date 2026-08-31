@@ -10,6 +10,7 @@ export const metadata: Metadata = constructMetadata({
   description:
     "Corporate identity and operating details for Droidsize Technologies Private Limited.",
   path: "/company",
+  image: "/api/og?eyebrow=Company%20information&title=Independent%20by%20structure.%20Collaborative%20by%20practice.&accent=navy",
 });
 
 const facts = [

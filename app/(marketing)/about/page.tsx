@@ -12,6 +12,7 @@ export const metadata: Metadata = constructMetadata({
   description:
     "Why Droidsize exists: a founder-led product studio that turns recurring problems into products, built in Delhi for use anywhere.",
   path: "/about",
+  image: "/api/og?eyebrow=About%20Droidsize&title=We%20build%20the%20things%20we%20need.&accent=green",
 });
 
 const PROBLEM_ROWS = [
@@ -20,7 +21,7 @@ const PROBLEM_ROWS = [
     problem: "Domains scattered across registrars, people, and spreadsheets.",
   },
   {
-    slug: "sparkle",
+    slug: "sparkles",
     problem: "Reading lists that grow faster than anyone can return to them.",
   },
   {

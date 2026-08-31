@@ -128,7 +128,7 @@ const RAIL_LAYERS = [
 
 const RAIL_PINS = [
   { x: 190, foot: 146, label: "Domain Collective", fill: "var(--accent-blue)" },
-  { x: 300, foot: 116, label: "Sparkle", fill: "var(--accent-orange)" },
+  { x: 300, foot: 116, label: "Sparkles", fill: "var(--accent-orange)" },
   { x: 410, foot: 146, label: "TripleWave", fill: "var(--accent-green)" },
 ];
 

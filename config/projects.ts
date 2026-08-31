@@ -118,14 +118,14 @@ export const projects: ProjectRecord[] = [
     ],
   },
   {
-    slug: "sparkle",
-    name: "Sparkle",
+    slug: "sparkles",
+    name: "Sparkles",
     relationship: "A Droidsize product",
     status: "Active development",
     categories: ["droidsize-product", "building-now"],
     selected: true,
     cover: {
-      src: "/projects/covers/sparkle.png",
+      src: "/projects/covers/sparkles.png",
       alt: "A dense reading queue becoming a connected constellation of ideas.",
       width: 1731,
       height: 908,
@@ -134,17 +134,17 @@ export const projects: ProjectRecord[] = [
       "Turn saved articles and text into concise visual stories, then organise them into Constellations you will want to revisit.",
     heroTitle: "Turn your reading list into something you will remember.",
     heroIntroduction:
-      "Save an article or paste a passage. Sparkle distils it into a short visual story you can read in a quiet minute, keep, remix, and group with related ideas.",
+      "Save an article or paste a passage. Sparkles distils it into a short visual story you can read in a quiet minute, keep, remix, and group with related ideas.",
     problem:
       "Reading lists are full of good intentions. Useful articles disappear into a queue long before their ideas become part of how you think.",
     productStory:
-      "Sparkle turns each saved piece into a sequence of focused visual cards called a Spark. Related Sparks collect into Constellations, so reading becomes a library of ideas rather than a growing pile of links.",
+      "Sparkles turns each saved piece into a sequence of focused visual cards called a Spark. Related Sparks collect into Constellations, so reading becomes a library of ideas rather than a growing pile of links.",
     droidsizeRole:
       "Product definition, brand and interaction design, AI reading pipeline, web and mobile engineering, and product operations.",
     links: [
       {
         href: "https://trysparkles.app",
-        label: "Explore Sparkle",
+        label: "Explore Sparkles",
         kind: "product",
       },
     ],

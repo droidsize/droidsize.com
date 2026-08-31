@@ -10,6 +10,7 @@ export const metadata: Metadata = constructMetadata({
   description:
     "Contact Droidsize Technologies about a product, project, company matter, or support request.",
   path: "/contact",
+  image: "/api/og?eyebrow=Let%27s%20talk&title=Tell%20us%20what%20you%20are%20building.&accent=orange",
 });
 
 const contactRoutes = [

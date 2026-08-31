@@ -8,7 +8,7 @@ export const siteConfig: SiteConfig = {
   description:
     "Droidsize is a multidisciplinary product studio designing and building SaaS, AI, mobile, and open-source products from India.",
   url: site_url,
-  ogImage: `${site_url}/opengraph-image.png`,
+  ogImage: `${site_url}/api/og`,
   ogImageAlt:
     "Droidsize — software products and the systems behind them, built from India.",
   links: {

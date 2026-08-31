@@ -10,11 +10,7 @@ export const metadata: Metadata = constructMetadata({
   description:
     "Products built by Droidsize, open-source work, and selected products made with founders and partner companies.",
   path: "/work",
-  image: "/projects/covers/domain-collective.png",
-  imageAlt:
-    "Registrar routes converging into one ordered domain portfolio for Domain Collective.",
-  imageWidth: 1731,
-  imageHeight: 909,
+  image: "/api/og?eyebrow=Work&title=Products%2C%20open%20tools%2C%20and%20selected%20collaborations.&accent=blue",
 });
 
 const featuredProjects = projects.filter((project) =>

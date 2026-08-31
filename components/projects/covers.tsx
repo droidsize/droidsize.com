@@ -61,9 +61,9 @@ function DomainCollectiveCover() {
   );
 }
 
-/* ————— Sparkle — saved reading resolves through an aperture into Sparks ————— */
+/* ————— Sparkles — saved reading resolves through an aperture into Sparks ————— */
 
-function SparkleCover() {
+function SparklesCover() {
   return (
     <svg className="cover-svg" viewBox={VB} aria-hidden="true">
       <Ground />
@@ -583,7 +583,7 @@ export const projectCovers: Partial<
   Record<string, () => React.ReactElement>
 > = {
   "domain-collective": DomainCollectiveCover,
-  sparkle: SparkleCover,
+  sparkles: SparklesCover,
   repopress: RepoPressCover,
   "merry-magic-mail": MerryMagicMailCover,
   cadenza: CadenzaCover,

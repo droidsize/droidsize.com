@@ -11,6 +11,7 @@ export const metadata: Metadata = constructMetadata({
   description:
     "Droidsize works with a small number of teams to turn difficult product ideas into well-considered software — with the same rails it uses on its own products.",
   path: "/studio",
+  image: "/api/og?eyebrow=The%20studio&title=What%20is%20keeping%20the%20product%20from%20moving%3F&accent=orange",
 });
 
 const CLIENT_STATES = [
@@ -38,8 +39,8 @@ const CLIENT_STATES = [
     response:
       "We design AI into the right parts of the product — where it compounds value instead of demoing it. Real workflows, honest constraints, and systems that stay reliable in daily use.",
     outcomes: ["The right use of AI", "An experience people trust", "Leverage that compounds"],
-    proof: "sparkle",
-    proofNote: "Sparkle's reading intelligence works inside a quiet, considered product experience.",
+    proof: "sparkles",
+    proofNote: "Sparkles' reading intelligence works inside a quiet, considered product experience.",
   },
 ];
 

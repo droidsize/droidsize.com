@@ -144,9 +144,9 @@ export function ChapterDomainCollective() {
   );
 }
 
-/* ————— Chapter: Sparkle ————— */
+/* ————— Chapter: Sparkles ————— */
 
-export function ChapterSparkle() {
+export function ChapterSparkles() {
   return (
     <section className="home-chapter home-flip">
       <div className="home-shell">
@@ -154,12 +154,12 @@ export function ChapterSparkle() {
           <div
             className="home-tablet"
             role="img"
-            aria-label="Sparkle reading app preview"
+            aria-label="Sparkles reading app preview"
           >
             <div className="home-tab-screen">
               <div className="home-tab-head">
                 <span>
-                  <span className="home-spark-dot">✦</span>Sparkle
+                  <span className="home-spark-dot">✦</span>Sparkles
                 </span>
                 <span>Constellations</span>
               </div>
@@ -199,7 +199,7 @@ export function ChapterSparkle() {
           </MaskRise>
           <Rise delay={0.14}>
             <p>
-              Sparkle turns saved articles into short visual stories called
+              Sparkles turns saved articles into short visual stories called
               Sparks, and gathers related ideas into Constellations you actually
               return to.
             </p>
@@ -211,7 +211,7 @@ export function ChapterSparkle() {
               target="_blank"
               rel="noreferrer"
             >
-              Explore Sparkle
+              Explore Sparkles
             </a>
           </Rise>
         </div>

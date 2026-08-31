@@ -2,7 +2,7 @@ import "@/styles/home.css";
 
 import {
   ChapterDomainCollective,
-  ChapterSparkle,
+  ChapterSparkles,
   HomeClose,
   HomeDelhi,
   HomeHero,
@@ -17,7 +17,7 @@ export default function Home() {
       <HomeHero />
       <HomeThesis />
       <ChapterDomainCollective />
-      <ChapterSparkle />
+      <ChapterSparkles />
       <HomeRails />
       <HomeIndex />
       <HomeDelhi />
