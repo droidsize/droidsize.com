@@ -1,0 +1,219 @@
+/* Animated SVG project covers — token-driven, theme-aware, reduced-motion safe. */
+
+.cover-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* line draw-in (runs once per mount) */
+  .cvr-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: cvr-draw 1.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  }
+  .cvr-draw.cvr-d2 {
+    animation-delay: 0.25s;
+  }
+  .cvr-draw.cvr-d3 {
+    animation-delay: 0.5s;
+  }
+  @keyframes cvr-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* soft pulse for dots */
+  .cvr-pulse {
+    animation: cvr-pulse 3.2s ease-in-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  .cvr-pulse.cvr-p2 {
+    animation-delay: 0.8s;
+  }
+  .cvr-pulse.cvr-p3 {
+    animation-delay: 1.6s;
+  }
+  @keyframes cvr-pulse {
+    0%,
+    100% {
+      opacity: 0.75;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.25);
+    }
+  }
+
+  /* gentle vertical bob */
+  .cvr-bob {
+    animation: cvr-bob 5.5s ease-in-out infinite;
+    transform-box: fill-box;
+  }
+  .cvr-bob.cvr-b2 {
+    animation-delay: 1.1s;
+  }
+  .cvr-bob.cvr-b3 {
+    animation-delay: 2.2s;
+  }
+  @keyframes cvr-bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* slow breathing scale (sparkle star, hubs) */
+  .cvr-breathe {
+    animation: cvr-breathe 6s ease-in-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  @keyframes cvr-breathe {
+    0%,
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      transform: scale(1.06) rotate(3deg);
+    }
+  }
+
+  /* travelling pulse along a straight rail */
+  .cvr-travel {
+    animation: cvr-travel 4.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  @keyframes cvr-travel {
+    0% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+    8% {
+      opacity: 1;
+    }
+    88% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(var(--cvr-travel-x, 500px));
+      opacity: 0;
+    }
+  }
+
+  /* waveform bars */
+  .cvr-wave {
+    animation: cvr-wave 1.8s ease-in-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  @keyframes cvr-wave {
+    0%,
+    100% {
+      transform: scaleY(0.55);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+  }
+
+  /* chart bars grow once */
+  .cvr-grow {
+    transform-origin: bottom;
+    transform-box: fill-box;
+    animation: cvr-grow 1.1s cubic-bezier(0.33, 1, 0.68, 1) both;
+  }
+  @keyframes cvr-grow {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  /* amber sweep highlight (copycanvas) */
+  .cvr-sweep {
+    animation: cvr-sweep 5s ease-in-out infinite;
+  }
+  @keyframes cvr-sweep {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  /* slow orbiting dashes (mmm) */
+  .cvr-orbit {
+    animation: cvr-orbit 14s linear infinite;
+  }
+  @keyframes cvr-orbit {
+    to {
+      stroke-dashoffset: -160;
+    }
+  }
+
+  /* triplewave wave drift — subtle path morph via CSS `d` where supported */
+  .cvr-morph-a {
+    animation: cvr-morph-a 7s ease-in-out infinite;
+  }
+  .cvr-morph-b {
+    animation: cvr-morph-b 8.5s ease-in-out infinite;
+  }
+  @supports not (d: path("M0 0")) {
+    .cvr-morph-a,
+    .cvr-morph-b {
+      animation: none;
+    }
+  }
+  @keyframes cvr-morph-a {
+    0%,
+    100% {
+      d: path(
+        "M 120 430 C 260 300, 380 560, 520 440 C 640 340, 760 540, 880 450 C 960 395, 1060 470, 1240 448"
+      );
+    }
+    50% {
+      d: path(
+        "M 120 450 C 260 340, 380 520, 520 420 C 640 360, 760 500, 880 470 C 960 415, 1060 450, 1240 448"
+      );
+    }
+  }
+  @keyframes cvr-morph-b {
+    0%,
+    100% {
+      d: path(
+        "M 120 520 C 280 620, 400 380, 560 470 C 700 545, 820 400, 940 460 C 1040 505, 1120 450, 1240 462"
+      );
+    }
+    50% {
+      d: path(
+        "M 120 500 C 280 580, 400 420, 560 490 C 700 525, 820 430, 940 445 C 1040 485, 1120 460, 1240 462"
+      );
+    }
+  }
+
+  /* cursor nudge (copycanvas) */
+  .cvr-nudge {
+    animation: cvr-nudge 4s ease-in-out infinite;
+    transform-box: fill-box;
+  }
+  @keyframes cvr-nudge {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-14px, -8px);
+    }
+  }
+}

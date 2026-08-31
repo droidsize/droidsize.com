@@ -44,12 +44,18 @@
     --accent-green: #17513c;
     --accent-navy: #1e2c4e;
 
-    --work-canvas: #fafaf8;
-    --work-surface: #f2f2ee;
-    --work-ink: #0a0a0a;
-    --work-muted: #62625f;
-    --work-faint: #73736f;
-    --work-line: #d5d5cf;
+    --cover-ground: #efe8d9;
+    --cover-card: #fbfaf7;
+    --cover-ink: #1b1917;
+    --cover-muted: #c4c0b4;
+
+    /* Work pages share the site system — kept as aliases for legacy markup */
+    --work-canvas: var(--site-canvas);
+    --work-surface: var(--site-surface-raised);
+    --work-ink: var(--site-ink);
+    --work-muted: var(--site-muted);
+    --work-faint: var(--site-faint);
+    --work-line: var(--site-line);
 
     --chart-1: 0 0% 92%;
     --chart-2: 0 0% 76%;
@@ -72,6 +78,16 @@
     --site-inverse-ink: #121110;
     --site-cream: #efe8d9;
 
+    --accent-blue: #4a63e0;
+    --accent-orange: #f0703d;
+    --accent-green: #2e7d5b;
+    --accent-navy: #7c8db5;
+
+    --cover-ground: #1d1b19;
+    --cover-card: #262320;
+    --cover-ink: #f0eee8;
+    --cover-muted: #55504a;
+
     --background: 30 6% 5%;
     --foreground: 45 14% 92%;
     --card: 0 0% 6%;
@@ -92,12 +108,12 @@
     --input: 0 0% 17%;
     --ring: 60 14% 95%;
 
-    --work-canvas: #0a0a0a;
-    --work-surface: #111111;
-    --work-ink: #f2f0ea;
-    --work-muted: #aaa9a4;
-    --work-faint: #7a7975;
-    --work-line: #2a2a2a;
+    --work-canvas: var(--site-canvas);
+    --work-surface: var(--site-surface-raised);
+    --work-ink: var(--site-ink);
+    --work-muted: var(--site-muted);
+    --work-faint: var(--site-faint);
+    --work-line: var(--site-line);
 
     --chart-1: 0 0% 92%;
     --chart-2: 0 0% 76%;
