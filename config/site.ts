@@ -21,12 +21,13 @@ export const siteConfig: SiteConfig = {
 
 export const footerLinks: SidebarNavItem[] = [
   {
-    title: "Company",
+    title: "Explore",
     items: [
-      { title: "Products", href: "/work" },
-      { title: "Open source", href: "/work#repopress" },
-      { title: "Studio", href: "/#our-services" },
-      { title: "About", href: "/company" },
+      { title: "Home", href: "/" },
+      { title: "Work", href: "/work" },
+      { title: "Studio", href: "/studio" },
+      { title: "About", href: "/about" },
+      { title: "Contact", href: "/contact" },
     ],
   },
 ];
@@ -43,6 +44,7 @@ export const footerSocials = {
 export const footerPolicy = {
   title: "Policies",
   items: [
+    { title: "Company", href: "/company" },
     { title: "Privacy", href: "/privacy" },
     { title: "Terms", href: "/terms" },
   ],

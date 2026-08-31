@@ -65,7 +65,7 @@ export function SlideIn({ children, delay = 0, className }: RevealProps) {
     <motion.div
       ref={ref}
       className={className}
-      initial={{ opacity: 0, x: 42 }}
+      initial={{ opacity: 0, x: 28 }}
       animate={isInView ? { opacity: 1, x: 0 } : undefined}
       transition={{ duration: 0.7, ease: EASE, delay }}
     >

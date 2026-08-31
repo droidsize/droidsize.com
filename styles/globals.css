@@ -153,6 +153,10 @@
     @apply border-border;
   }
 
+  html {
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings:
