@@ -22,90 +22,208 @@ function DrawnPath({ d, w = 1.6, delay = 0, color = "var(--site-ink)" }: Stroke)
   );
 }
 
-/* ————— Hero — routing lines draw in, endpoints pop ————— */
+/* ————— Hero — a routing network: draw, pop, then ambient flow ————— */
+
+const HERO_ROUTES = [
+  {
+    d: "M40 60 H210 Q224 60 224 74 V150 Q224 164 238 164 H480",
+    delay: 0,
+    ends: [
+      { cx: 40, cy: 60, r: 7, fill: "var(--accent-green)", d: 650 },
+      { cx: 480, cy: 164, r: 7, fill: "var(--accent-blue)", d: 800 },
+    ],
+    traveler: { dur: "7s", delay: 2000, fill: "var(--accent-blue)" },
+  },
+  {
+    d: "M120 310 V218 Q120 204 134 204 H300 Q314 204 314 190 V60 Q314 46 328 46 H474",
+    delay: 250,
+    ends: [
+      { cx: 120, cy: 310, r: 6, fill: "var(--accent-orange)", d: 950 },
+      { cx: 474, cy: 46, r: 7, fill: "var(--accent-green)", d: 1100 },
+    ],
+    traveler: { dur: "8.5s", delay: 3000, fill: "var(--accent-orange)" },
+  },
+  {
+    d: "M40 250 H150 Q164 250 164 264 V310",
+    delay: 500,
+    ends: [{ cx: 40, cy: 250, r: 6, fill: "var(--accent-yellow)", d: 1200, ring: true }],
+    traveler: null,
+  },
+  {
+    d: "M480 250 H370 Q356 250 356 264 V312",
+    delay: 650,
+    ends: [{ cx: 480, cy: 250, r: 6, fill: "var(--accent-navy)", d: 1300 }],
+    traveler: null,
+  },
+  {
+    d: "M264 312 V254 Q264 240 250 240 H80 Q66 240 66 226 V130 Q66 116 80 116 H140",
+    delay: 850,
+    ends: [{ cx: 140, cy: 116, r: 6, fill: "var(--accent-orange)", d: 1450 }],
+    traveler: { dur: "7.5s", delay: 4200, fill: "var(--accent-green)" },
+  },
+];
 
 export function HeroMapLines() {
-  const dots = [
-    { cx: 64, cy: 92, r: 7, fill: "var(--accent-green)", d: 500 },
-    { cx: 480, cy: 60, r: 7, fill: "var(--accent-blue)", d: 700 },
-    { cx: 250, cy: 52, r: 6, fill: "var(--accent-orange)", d: 900 },
-    { cx: 470, cy: 194, r: 7, fill: "var(--accent-green)", d: 1100 },
-    { cx: 40, cy: 250, r: 6, fill: "var(--accent-yellow)", d: 1250 },
-  ];
   return (
     <svg viewBox="0 0 520 340" fill="none" aria-hidden="true">
-      <DrawnPath d="M64 92 H336 Q350 92 350 106 V180 Q350 194 364 194 H470" delay={0} />
-      <DrawnPath d="M120 300 V210 Q120 196 134 196 H236 Q250 196 250 182 V52" delay={200} />
-      <DrawnPath d="M480 60 H420 Q406 60 406 74 V128" delay={400} />
-      <DrawnPath d="M40 250 H180 Q194 250 194 264 V312" delay={550} />
-      {dots.map((dot, i) => (
-        <circle
-          key={i}
-          className="hm-pop hm-pulse"
-          style={{ ["--d" as string]: dot.d }}
-          cx={dot.cx}
-          cy={dot.cy}
-          r={dot.r}
-          fill={dot.fill}
-          stroke={dot.fill === "var(--accent-yellow)" ? "var(--site-ink)" : "none"}
-          strokeWidth="1"
-        />
+      {HERO_ROUTES.map((route, i) => (
+        <g key={i}>
+          <DrawnPath d={route.d} delay={route.delay} />
+          {route.ends.map((end, j) => (
+            <circle
+              key={j}
+              className="hm-pop hm-pulse"
+              style={{ ["--d" as string]: end.d }}
+              cx={end.cx}
+              cy={end.cy}
+              r={end.r}
+              fill={end.fill}
+              stroke={"ring" in end && end.ring ? "var(--site-ink)" : "none"}
+              strokeWidth="1"
+            />
+          ))}
+          {route.traveler ? (
+            <circle
+              className="hm-travel"
+              style={{
+                ["--path" as string]: `path("${route.d}")`,
+                ["--dur" as string]: route.traveler.dur,
+                ["--d" as string]: route.traveler.delay,
+              }}
+              r="4"
+              fill={route.traveler.fill}
+            />
+          ) : null}
+        </g>
       ))}
+      {/* junction nodes */}
+      <circle className="hm-pop" style={{ ["--d" as string]: 1550 }} cx="314" cy="164" r="3" fill="var(--site-ink)" />
+      <circle className="hm-pop" style={{ ["--d" as string]: 1650 }} cx="120" cy="240" r="3" fill="var(--site-ink)" />
     </svg>
   );
 }
 
-/* ————— Rails — five isometric layers, product pins, dashed spine ————— */
+/* ————— Rails — isometric stack: edges draw, fills wash in, layers drift ————— */
 
-const ISO = { cx: 300, dw: 218, dh: 96, t: 24, gap: 88, topY: 190 };
+const ISO = { cx: 300, dw: 218, dh: 92, t: 26, gap: 100, topY: 176 };
 
-function isoLayer(cy: number) {
+function isoFaces(cy: number) {
   const { cx, dw, dh, t } = ISO;
-  const N = `${cx} ${cy - dh}`;
-  const E = `${cx + dw} ${cy}`;
-  const S = `${cx} ${cy + dh}`;
-  const W = `${cx - dw} ${cy}`;
   return {
-    top: `M ${N} L ${E} L ${S} L ${W} Z`,
-    right: `M ${E} L ${S} L ${cx} ${cy + dh + t} L ${cx + dw} ${cy + t} Z`,
-    left: `M ${W} L ${S} L ${cx} ${cy + dh + t} L ${cx - dw} ${cy + t} Z`,
+    top: `M ${cx} ${cy - dh} L ${cx + dw} ${cy} L ${cx} ${cy + dh} L ${cx - dw} ${cy} Z`,
+    right: `M ${cx + dw} ${cy} L ${cx} ${cy + dh} L ${cx} ${cy + dh + t} L ${cx + dw} ${cy + t} Z`,
+    left: `M ${cx - dw} ${cy} L ${cx} ${cy + dh} L ${cx} ${cy + dh + t} L ${cx - dw} ${cy + t} Z`,
+    edges: `M ${cx - dw} ${cy} v ${t} M ${cx} ${cy + dh} v ${t} M ${cx + dw} ${cy} v ${t} M ${cx - dw} ${cy + t} L ${cx} ${cy + dh + t} L ${cx + dw} ${cy + t}`,
   };
 }
 
+const RAIL_LAYERS = [
+  { label: "Product layer", dot: "var(--accent-blue)" },
+  { label: "Design system", dot: "var(--accent-orange)" },
+  { label: "AI workflows", dot: "var(--site-ink)" },
+  { label: "Infrastructure", dot: "var(--accent-yellow)" },
+  { label: "Release rails", dot: "var(--accent-green)" },
+];
+
+const RAIL_PINS = [
+  { x: 190, foot: 146, label: "Domain Collective", fill: "var(--accent-blue)" },
+  { x: 300, foot: 116, label: "Sparkle", fill: "var(--accent-orange)" },
+  { x: 410, foot: 146, label: "TripleWave", fill: "var(--accent-green)" },
+];
+
 export function RailsStack() {
-  const layers = [
-    { label: "Product layer", dot: "var(--accent-blue)" },
-    { label: "Design system", dot: "var(--accent-orange)" },
-    { label: "AI workflows", dot: "var(--site-ink)" },
-    { label: "Infrastructure", dot: "var(--accent-yellow)" },
-    { label: "Release rails", dot: "var(--accent-green)" },
-  ];
-  const pins = [
-    { x: 190, foot: 132, label: "Domain Collective", fill: "var(--accent-blue)" },
-    { x: 300, foot: 104, label: "Sparkle", fill: "var(--accent-orange)" },
-    { x: 410, foot: 132, label: "TripleWave", fill: "var(--accent-green)" },
-  ];
-  const { cx, dh, t, gap, topY } = ISO;
+  const { cx, dw, dh, t, gap, topY } = ISO;
+  // paint bottom layer first so upper layers occlude correctly
+  const order = [4, 3, 2, 1, 0];
 
   return (
-    <svg viewBox="0 0 660 680" fill="none" aria-hidden="true">
-      {/* product pins */}
-      {pins.map((pin, i) => (
+    <svg viewBox="0 0 660 724" fill="none" aria-hidden="true">
+      {order.map((i) => {
+        const layer = RAIL_LAYERS[i];
+        const cy = topY + i * gap;
+        const faces = isoFaces(cy);
+        const base = (4 - i) * 180;
+        return (
+          <g
+            key={layer.label}
+            className="hm-drift"
+            style={{ ["--d" as string]: base }}
+            fontFamily="var(--font-sans), Helvetica, sans-serif"
+          >
+            <path
+              className="hm-fill"
+              style={{ ["--d" as string]: base + 520 }}
+              d={faces.left}
+              fill="color-mix(in srgb, var(--site-ink) 13%, var(--site-surface))"
+            />
+            <path
+              className="hm-fill"
+              style={{ ["--d" as string]: base + 520 }}
+              d={faces.right}
+              fill="color-mix(in srgb, var(--site-ink) 7%, var(--site-surface))"
+            />
+            <path
+              className="hm-fill"
+              style={{ ["--d" as string]: base + 440 }}
+              d={faces.top}
+              fill={i % 2 === 0 ? "var(--site-surface)" : "var(--site-surface-raised)"}
+            />
+            <DrawnPath d={faces.top} w={1.5} delay={base} />
+            <DrawnPath d={faces.edges} w={1.5} delay={base + 260} />
+            <circle
+              className="hm-pop"
+              style={{ ["--d" as string]: base + 640 }}
+              cx={cx - dw + 34}
+              cy={cy}
+              r="5.5"
+              fill={layer.dot}
+              stroke={layer.dot === "var(--accent-yellow)" ? "var(--site-ink)" : "none"}
+              strokeWidth="1"
+            />
+            <text
+              className="hm-pop"
+              style={{ ["--d" as string]: base + 700 }}
+              x={cx + dw + 18}
+              y={cy + 5}
+              fontSize="15"
+              fill="var(--site-muted)"
+            >
+              {layer.label}
+            </text>
+          </g>
+        );
+      })}
+
+      {/* dashed spine */}
+      <path
+        className="hm-fill"
+        style={{ ["--d" as string]: 1400 }}
+        d={`M${cx} ${topY - dh + 12} V${topY + 4 * gap + dh + t - 12}`}
+        pathLength={1}
+        stroke="var(--site-ink)"
+        strokeWidth="1.3"
+        strokeDasharray="0.012 0.02"
+        fill="none"
+        opacity="0.7"
+      />
+
+      {/* product pins onto the top layer */}
+      {RAIL_PINS.map((pin, i) => (
         <g key={pin.label} fontFamily="var(--font-sans), Helvetica, sans-serif">
-          <DrawnPath d={`M${pin.x} 46 V${pin.foot}`} w={1.4} delay={600 + i * 150} />
+          <DrawnPath d={`M${pin.x} 58 V${pin.foot}`} w={1.4} delay={1500 + i * 160} />
           <circle
             className="hm-pop hm-pulse"
-            style={{ ["--d" as string]: 700 + i * 150 }}
+            style={{ ["--d" as string]: 1620 + i * 160 }}
             cx={pin.x}
-            cy="40"
+            cy="52"
             r="6.5"
             fill={pin.fill}
           />
           <text
             className="hm-pop"
-            style={{ ["--d" as string]: 800 + i * 150 }}
+            style={{ ["--d" as string]: 1720 + i * 160 }}
             x={pin.x}
-            y="22"
+            y="32"
             textAnchor="middle"
             fontSize="14"
             fill="var(--site-muted)"
@@ -114,56 +232,6 @@ export function RailsStack() {
           </text>
         </g>
       ))}
-
-      {/* layers, top to bottom, rising in from below */}
-      {layers.map((layer, i) => {
-        const cy = topY + i * gap;
-        const faces = isoLayer(cy);
-        return (
-          <g
-            key={layer.label}
-            className="hm-assemble"
-            style={{ ["--d" as string]: 120 * i }}
-            fontFamily="var(--font-sans), Helvetica, sans-serif"
-          >
-            <path
-              d={faces.left}
-              fill="color-mix(in srgb, var(--site-ink) 13%, var(--site-surface))"
-              stroke="var(--site-ink)"
-              strokeWidth="1.5"
-            />
-            <path
-              d={faces.right}
-              fill="color-mix(in srgb, var(--site-ink) 7%, var(--site-surface))"
-              stroke="var(--site-ink)"
-              strokeWidth="1.5"
-            />
-            <path
-              d={faces.top}
-              fill={i % 2 === 0 ? "var(--site-surface)" : "var(--site-surface-raised)"}
-              stroke="var(--site-ink)"
-              strokeWidth="1.5"
-            />
-            <circle cx={cx - ISO.dw + 26} cy={cy - 2} r="5.5" fill={layer.dot} />
-            <text x={cx + ISO.dw + 18} y={cy + 5} fontSize="15" fill="var(--site-muted)">
-              {layer.label}
-            </text>
-          </g>
-        );
-      })}
-
-      {/* dashed spine through the stack */}
-      <path
-        className="hm-rise"
-        style={{ ["--d" as string]: 900 }}
-        d={`M${cx} ${topY - dh + 10} V${topY + 4 * gap + dh + t - 10}`}
-        pathLength={1}
-        stroke="var(--site-ink)"
-        strokeWidth="1.3"
-        strokeDasharray="0.012 0.02"
-        fill="none"
-        opacity="0.7"
-      />
     </svg>
   );
 }

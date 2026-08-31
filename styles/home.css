@@ -703,6 +703,57 @@
       calc(var(--d, 0) * 1ms),
       calc(var(--d, 0) * 1ms + 1400ms);
   }
+
+  /* float-only group (drawing happens on children) */
+  [data-draw="in"] .hm-drift {
+    animation: hm-float 8s ease-in-out infinite;
+    animation-delay: calc(var(--d, 0) * 1ms + 2000ms);
+    transform-box: fill-box;
+  }
+
+  /* fills wash in after their outlines draw */
+  [data-draw] .hm-fill {
+    opacity: 0;
+  }
+  [data-draw="in"] .hm-fill {
+    animation: hm-fade 0.7s ease-out forwards;
+    animation-delay: calc(var(--d, 0) * 1ms);
+  }
+  @keyframes hm-fade {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* ambient pulses travelling along hero routes */
+  .hm-travel {
+    display: none;
+  }
+  @supports (offset-path: path("M0 0 L1 1")) {
+    [data-draw="in"] .hm-travel {
+      display: block;
+      offset-path: var(--path);
+      offset-rotate: 0deg;
+      animation: hm-travel var(--dur, 7s) linear infinite;
+      animation-delay: calc(var(--d, 0) * 1ms);
+    }
+    @keyframes hm-travel {
+      0% {
+        offset-distance: 0%;
+        opacity: 0;
+      }
+      6% {
+        opacity: 1;
+      }
+      94% {
+        opacity: 1;
+      }
+      100% {
+        offset-distance: 100%;
+        opacity: 0;
+      }
+    }
+  }
   @keyframes hm-float {
     0%,
     100% {
@@ -734,8 +785,12 @@
 @media (prefers-reduced-motion: reduce) {
   [data-draw] .hm-pop,
   [data-draw] .hm-rise,
-  [data-draw] .hm-assemble {
+  [data-draw] .hm-assemble,
+  [data-draw] .hm-fill {
     opacity: 1;
     transform: none;
+  }
+  [data-draw] .hm-travel {
+    display: none;
   }
 }
