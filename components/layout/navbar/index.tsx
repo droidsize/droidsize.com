@@ -118,8 +118,8 @@ export default function Navbar() {
               "dark:invert",
             )}
           />
-          <span className="text-xl font-medium tracking-[-0.03em]">
-            droidsize
+          <span className="text-xl font-medium tracking-[0.1px]">
+            Droidsize
           </span>
         </Link>
 

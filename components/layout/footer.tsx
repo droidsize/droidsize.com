@@ -38,8 +38,8 @@ export default function Footer() {
                   "dark:invert",
                 )}
               />
-              <span className="text-xl font-medium tracking-[-0.03em]">
-                droidsize
+              <span className="text-xl font-medium tracking-[0.1px]">
+                Droidsize
               </span>
             </Link>
             <p className={cn("mt-5 max-w-xs text-base leading-7", mutedClass)}>

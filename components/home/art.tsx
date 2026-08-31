@@ -22,50 +22,50 @@ function DrawnPath({ d, w = 1.6, delay = 0, color = "var(--site-ink)" }: Stroke)
   );
 }
 
-/* ————— Hero — a routing network: draw, pop, then ambient flow ————— */
+/* ————— Hero — an edge-to-edge network: pulses move in and out of frame ————— */
 
 const HERO_ROUTES = [
   {
-    d: "M40 60 H210 Q224 60 224 74 V150 Q224 164 238 164 H480",
+    d: "M0 150 H320 Q336 150 336 166 V250 Q336 266 352 266 H800",
     delay: 0,
-    ends: [
-      { cx: 40, cy: 60, r: 7, fill: "var(--accent-green)", d: 650 },
-      { cx: 480, cy: 164, r: 7, fill: "var(--accent-blue)", d: 800 },
-    ],
-    traveler: { dur: "7s", delay: 2000, fill: "var(--accent-blue)" },
+    ends: [],
+    traveler: { dur: "9s", delay: 1800, fill: "var(--accent-blue)" },
   },
   {
-    d: "M120 310 V218 Q120 204 134 204 H300 Q314 204 314 190 V60 Q314 46 328 46 H474",
+    d: "M800 90 H560 Q544 90 544 106 V210",
     delay: 250,
-    ends: [
-      { cx: 120, cy: 310, r: 6, fill: "var(--accent-orange)", d: 950 },
-      { cx: 474, cy: 46, r: 7, fill: "var(--accent-green)", d: 1100 },
-    ],
-    traveler: { dur: "8.5s", delay: 3000, fill: "var(--accent-orange)" },
+    ends: [{ cx: 544, cy: 214, r: 7, fill: "var(--accent-blue)", d: 900 }],
+    traveler: { dur: "6.5s", delay: 4200, fill: "var(--accent-orange)" },
   },
   {
-    d: "M40 250 H150 Q164 250 164 264 V310",
-    delay: 500,
-    ends: [{ cx: 40, cy: 250, r: 6, fill: "var(--accent-yellow)", d: 1200, ring: true }],
+    d: "M0 440 H180 Q196 440 196 424 V320 Q196 304 212 304 H420 Q436 304 436 288 V80",
+    delay: 450,
+    ends: [{ cx: 436, cy: 76, r: 7, fill: "var(--accent-green)", d: 1100 }],
+    traveler: { dur: "8s", delay: 3000, fill: "var(--accent-green)" },
+  },
+  {
+    d: "M800 500 H600 Q584 500 584 484 V400 Q584 384 568 384 H364",
+    delay: 600,
+    ends: [{ cx: 360, cy: 384, r: 6, fill: "var(--accent-orange)", d: 1250 }],
+    traveler: { dur: "7s", delay: 5200, fill: "var(--accent-navy)" },
+  },
+  {
+    d: "M140 0 V110 Q140 126 156 126 H260",
+    delay: 750,
+    ends: [{ cx: 264, cy: 126, r: 6, fill: "var(--accent-yellow)", d: 1350, ring: true }],
     traveler: null,
   },
   {
-    d: "M480 250 H370 Q356 250 356 264 V312",
-    delay: 650,
-    ends: [{ cx: 480, cy: 250, r: 6, fill: "var(--accent-navy)", d: 1300 }],
-    traveler: null,
-  },
-  {
-    d: "M264 312 V254 Q264 240 250 240 H80 Q66 240 66 226 V130 Q66 116 80 116 H140",
-    delay: 850,
-    ends: [{ cx: 140, cy: 116, r: 6, fill: "var(--accent-orange)", d: 1450 }],
-    traveler: { dur: "7.5s", delay: 4200, fill: "var(--accent-green)" },
+    d: "M280 620 V520 Q280 504 296 504 H520 Q536 504 536 520 V620",
+    delay: 900,
+    ends: [],
+    traveler: { dur: "6s", delay: 6400, fill: "var(--accent-orange)" },
   },
 ];
 
 export function HeroMapLines() {
   return (
-    <svg viewBox="0 0 520 340" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 800 620" fill="none" aria-hidden="true">
       {HERO_ROUTES.map((route, i) => (
         <g key={i}>
           <DrawnPath d={route.d} delay={route.delay} />
@@ -90,15 +90,16 @@ export function HeroMapLines() {
                 ["--dur" as string]: route.traveler.dur,
                 ["--d" as string]: route.traveler.delay,
               }}
-              r="4"
+              r="4.5"
               fill={route.traveler.fill}
             />
           ) : null}
         </g>
       ))}
-      {/* junction nodes */}
-      <circle className="hm-pop" style={{ ["--d" as string]: 1550 }} cx="314" cy="164" r="3" fill="var(--site-ink)" />
-      <circle className="hm-pop" style={{ ["--d" as string]: 1650 }} cx="120" cy="240" r="3" fill="var(--site-ink)" />
+      {/* junction nodes where routes cross */}
+      <circle className="hm-pop" style={{ ["--d" as string]: 1500 }} cx="336" cy="266" r="3" fill="var(--site-ink)" />
+      <circle className="hm-pop" style={{ ["--d" as string]: 1580 }} cx="436" cy="150" r="3" fill="var(--site-ink)" />
+      <circle className="hm-pop" style={{ ["--d" as string]: 1660 }} cx="584" cy="500" r="3" fill="var(--site-ink)" />
     </svg>
   );
 }
