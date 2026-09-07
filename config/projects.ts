@@ -7,6 +7,8 @@ export type ProjectCategory =
 
 export type ProjectStatus =
   | "Live"
+  | "Live on the web"
+  | "Build complete"
   | "Active development"
   | "In development"
   | "Partner product"
@@ -121,8 +123,8 @@ export const projects: ProjectRecord[] = [
     slug: "sparkles",
     name: "Sparkles",
     relationship: "A Droidsize product",
-    status: "Active development",
-    categories: ["droidsize-product", "building-now"],
+    status: "Live on the web",
+    categories: ["droidsize-product"],
     selected: true,
     cover: {
       src: "/projects/covers/sparkles.png",
@@ -144,7 +146,7 @@ export const projects: ProjectRecord[] = [
     links: [
       {
         href: "https://trysparkles.app",
-        label: "Explore Sparkles",
+        label: "Try Sparkles on the web",
         kind: "product",
       },
     ],
@@ -299,8 +301,8 @@ export const projects: ProjectRecord[] = [
     slug: "triplewave",
     name: "TripleWave",
     relationship: "A Droidsize product",
-    status: "Active development",
-    categories: ["droidsize-product", "building-now"],
+    status: "Build complete",
+    categories: ["droidsize-product"],
     selected: true,
     cover: {
       src: "/projects/covers/triplewave.png",

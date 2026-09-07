@@ -191,7 +191,7 @@ export function ChapterSparkles() {
         <div>
           <Rise>
             <p className="home-ch-meta">
-              02 · Droidsize product · In active development
+              02 · Droidsize product · Live on the web
             </p>
           </Rise>
           <MaskRise delay={0.06}>
@@ -211,7 +211,7 @@ export function ChapterSparkles() {
               target="_blank"
               rel="noreferrer"
             >
-              Explore Sparkles
+              Try Sparkles on the web
             </a>
           </Rise>
         </div>
@@ -280,6 +280,8 @@ const INDEX_SLUGS = [
 
 const STATUS_DOT: Record<string, string> = {
   Live: "var(--accent-orange)",
+  "Live on the web": "var(--accent-orange)",
+  "Build complete": "var(--accent-navy)",
   "Active development": "var(--accent-green)",
   "In development": "var(--accent-blue)",
   "Public repository": "var(--accent-navy)",
